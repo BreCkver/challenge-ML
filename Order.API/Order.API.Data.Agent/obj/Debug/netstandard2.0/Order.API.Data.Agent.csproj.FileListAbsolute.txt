@@ -1,0 +1,9 @@
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\netstandard2.0\Order.API.Data.Agent.deps.json
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\netstandard2.0\Order.API.Data.Agent.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\netstandard2.0\Order.API.Data.Agent.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.csprojAssemblyReference.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.AssemblyInfoInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.AssemblyInfo.cs
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.csproj.CoreCompileInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\netstandard2.0\Order.API.Data.Agent.pdb

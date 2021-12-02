@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "QuIBXYK0nEuxAIEzdknM8KwHZZb4+ZJoQIb7LbX9SG8bgFAzPGEI2qrETNcse3F/SdSdzKI9Y0gysqaC5fT8QA==",
+  "success": true,
+  "projectFilePath": "C:\\Repository\\challenge-ML\\Order.API\\Order.API.Business\\Order.API.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\roliv\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\roliv\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

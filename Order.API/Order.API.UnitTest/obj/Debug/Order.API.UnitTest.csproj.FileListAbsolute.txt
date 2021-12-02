@@ -1,0 +1,14 @@
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.UnitTest.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.UnitTest.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.csprojAssemblyReference.cache
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.csproj.CoreCompileInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.csproj.CopyComplete
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.pdb
