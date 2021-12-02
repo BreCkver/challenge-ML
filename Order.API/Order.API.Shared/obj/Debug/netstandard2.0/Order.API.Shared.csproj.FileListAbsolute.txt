@@ -4,6 +4,6 @@ C:\Repository\challenge-ML\Order.API\Order.API.Shared\bin\Debug\netstandard2.0\O
 C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.csprojAssemblyReference.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.AssemblyInfoInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.AssemblyInfo.cs
-C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Shared\obj\Debug\netstandard2.0\Order.API.Shared.csproj.CoreCompileInputs.cache

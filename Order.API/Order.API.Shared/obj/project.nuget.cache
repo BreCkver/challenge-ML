@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uiNfsjzfd+klaCj1pF4sXR4cPBwSxFn0rVW3xkjtgpSV4WW2s5KigNX0Mx0Q3nnPAhzkAyjqjiLPr9c3hq7ZiQ==",
+  "dgSpecHash": "ypmba2N6y5ZPdwg7O8Qf4eO0zJJ2qfWPLB+gIfL5bmHgVzZ+Gnj9V51l0YFOkOm61Od0XruvS+IoNtroJzMpcA==",
   "success": true,
   "projectFilePath": "C:\\Repository\\challenge-ML\\Order.API\\Order.API.Shared\\Order.API.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roliv\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\roliv\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\roliv\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\roliv\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512"
   ],
   "logs": []
 }
