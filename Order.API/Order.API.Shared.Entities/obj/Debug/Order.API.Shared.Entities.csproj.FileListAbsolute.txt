@@ -1,0 +1,8 @@
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\bin\Debug\Order.API.Shared.Entities.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\bin\Debug\Order.API.Shared.Entities.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\bin\Debug\Newtonsoft.Json.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\bin\Debug\Newtonsoft.Json.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.csproj.CoreCompileInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.csproj.CopyComplete
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.pdb

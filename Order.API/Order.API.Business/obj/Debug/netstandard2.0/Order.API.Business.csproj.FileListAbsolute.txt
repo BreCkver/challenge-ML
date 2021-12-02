@@ -1,9 +1,0 @@
-C:\Repository\challenge-ML\Order.API\Order.API.Business\bin\Debug\netstandard2.0\Order.API.Business.deps.json
-C:\Repository\challenge-ML\Order.API\Order.API.Business\bin\Debug\netstandard2.0\Order.API.Business.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Business\bin\Debug\netstandard2.0\Order.API.Business.pdb
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.csprojAssemblyReference.cache
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.AssemblyInfoInputs.cache
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.AssemblyInfo.cs
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.csproj.CoreCompileInputs.cache
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Business\obj\Debug\netstandard2.0\Order.API.Business.pdb

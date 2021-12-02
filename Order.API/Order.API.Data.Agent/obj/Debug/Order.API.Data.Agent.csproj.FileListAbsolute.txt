@@ -1,0 +1,6 @@
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Data.Agent.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Data.Agent.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.csprojAssemblyReference.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.csproj.CoreCompileInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.pdb

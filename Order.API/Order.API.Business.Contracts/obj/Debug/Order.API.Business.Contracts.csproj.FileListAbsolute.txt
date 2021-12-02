@@ -1,0 +1,11 @@
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Order.API.Business.Contracts.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Order.API.Business.Contracts.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Order.API.Shared.Entities.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Newtonsoft.Json.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Order.API.Shared.Entities.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\bin\Debug\Newtonsoft.Json.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\obj\Debug\Order.API.Business.Contracts.csprojAssemblyReference.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\obj\Debug\Order.API.Business.Contracts.csproj.CoreCompileInputs.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\obj\Debug\Order.API.Business.Contracts.csproj.CopyComplete
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\obj\Debug\Order.API.Business.Contracts.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Business.Contracts\obj\Debug\Order.API.Business.Contracts.pdb
