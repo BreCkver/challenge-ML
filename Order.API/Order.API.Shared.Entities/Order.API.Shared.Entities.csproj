@@ -44,12 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDTO.cs" />
+    <Compile Include="BookExtendedDTO.cs" />
     <Compile Include="Constants\ErrorType.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="External\BookExternalResponse.cs" />
+    <Compile Include="External\BookExternal.cs" />
+    <Compile Include="ProductDTO.cs" />
+    <Compile Include="Request\BookFilterRequest.cs" />
     <Compile Include="ResponseGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\UserCreatedRequest.cs" />
     <Compile Include="Request\UserRequest.cs" />
+    <Compile Include="Response\BookResponse.cs" />
     <Compile Include="Response\Message.cs" />
     <Compile Include="Response\Meta.cs" />
     <Compile Include="Response\Response.cs" />

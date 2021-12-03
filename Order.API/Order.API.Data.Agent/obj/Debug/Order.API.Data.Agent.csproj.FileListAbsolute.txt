@@ -4,3 +4,12 @@ C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Da
 C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Newtonsoft.Json.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Business.Contracts.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Shared.Entities.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Shared.Framework.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Business.Contracts.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Shared.Entities.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Order.API.Shared.Framework.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\bin\Debug\Newtonsoft.Json.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\obj\Debug\Order.API.Data.Agent.csproj.CopyComplete

@@ -9,6 +9,7 @@ C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.Visu
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Moq.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Business.Contracts.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Business.dll
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Data.Agent.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Shared.Entities.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.dll
@@ -16,6 +17,7 @@ C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Shar
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Newtonsoft.Json.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Business.Contracts.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Business.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Data.Agent.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.Shared.Entities.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Castle.Core.xml
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml

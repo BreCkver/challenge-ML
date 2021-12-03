@@ -11,3 +11,4 @@ C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Ord
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.dll
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.pdb
+C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csprojAssemblyReference.cache
