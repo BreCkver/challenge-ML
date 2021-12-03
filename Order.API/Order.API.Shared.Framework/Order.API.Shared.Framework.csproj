@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Order.API.Business.Contracts\Order.API.Business.Contracts.csproj">
+      <Project>{104373E8-5000-4B3D-AB76-B08D5CF4D271}</Project>
+      <Name>Order.API.Business.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Order.API.Shared.Entities\Order.API.Shared.Entities.csproj">
       <Project>{09594DB4-D588-4136-B267-B50CD4B7D90F}</Project>
       <Name>Order.API.Shared.Entities</Name>

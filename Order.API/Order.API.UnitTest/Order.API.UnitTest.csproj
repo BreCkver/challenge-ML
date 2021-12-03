@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookFilterTest.cs" />
+    <Compile Include="BookFilterItemTest.cs" />
     <Compile Include="UserAuthenticateTest.cs" />
     <Compile Include="UserCreatedTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +79,10 @@
     <ProjectReference Include="..\Order.API.Business\Order.API.Business.csproj">
       <Project>{ABB5E5F8-2677-4A55-A1F8-830619891C03}</Project>
       <Name>Order.API.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Order.API.Data.Agent\Order.API.Data.Agent.csproj">
+      <Project>{C24039F1-2E85-49BA-94F6-5A1C5B76FA30}</Project>
+      <Name>Order.API.Data.Agent</Name>
     </ProjectReference>
     <ProjectReference Include="..\Order.API.Shared.Entities\Order.API.Shared.Entities.csproj">
       <Project>{09594DB4-D588-4136-B267-B50CD4B7D90F}</Project>

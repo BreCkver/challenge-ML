@@ -9,3 +9,5 @@ C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\obj\Debug\Order.
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\obj\Debug\Order.API.Shared.Framework.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\obj\Debug\Order.API.Shared.Framework.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\obj\Debug\Order.API.Shared.Framework.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\bin\Debug\Order.API.Business.Contracts.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\bin\Debug\Order.API.Business.Contracts.pdb

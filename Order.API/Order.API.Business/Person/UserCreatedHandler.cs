@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Order.API.Business.Contracts;
+using Order.API.Business.Contracts.Error;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.Request;
@@ -36,26 +37,27 @@ namespace Order.API.Business.Person
         {
             if(request == null)
             {
-                return ResponseGeneric.CreateError<bool>(new Error ("errorCode", "errorMessage", ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error (ErrorCode.REQUEST_NULL, ErrorMessage.REQUEST_NULL, ErrorType.BUSINESS));
             }
-
             if(ValidateRequest(request))
             {
-                return ResponseGeneric.CreateError<bool>(new Error("errorCode", "errorMessage", ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
             }
 
             var UserExists = await repository.GetByUser(request);
             if(UserExists.Failure)
             {
                 return UserExists.AsError<bool>();
-            }
-            
+            }            
             if(UserExists.Value != null)
             {
-                return ResponseGeneric.CreateError<bool>(new Error("errorCode", "errorMessage", ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_EXISTS, ErrorMessage.USERNAME_EXISTS, ErrorType.BUSINESS));
             }
 
-            //Pendiente validar, la contraseña sea la misma
+            if(request.Password != request.PasswordConfirm)
+            {
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_EXISTS, ErrorMessage.USERNAME_EXISTS, ErrorType.BUSINESS));
+            }    
 
             return ResponseGeneric.Create(true);
         }

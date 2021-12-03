@@ -13,26 +13,26 @@ namespace Order.API.UnitTest
     {
 
         private UserCreatedHandler handler;
-        private Mock<IUserRepository> reposotory;
+        private Mock<IUserRepository> repository;
 
         [TestInitialize]
         public void Initialize()
         {
-            reposotory = new Mock<IUserRepository>();
-            handler = new UserCreatedHandler(reposotory.Object);
+            repository = new Mock<IUserRepository>();
+            handler = new UserCreatedHandler(repository.Object);
             Setup();
         }
 
         public void Setup()
         {
-            reposotory.Setup(x => x.Insert(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.Insert(It.IsAny<UserDTO>()))
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
         }
 
         [TestMethod]
         public async Task Failure_Validations()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
             var response = await handler.IsValid(GetUserRequest);
             Assert.IsFalse(response.Success);
@@ -41,7 +41,7 @@ namespace Order.API.UnitTest
         [TestMethod]
         public async Task Failure_Validations_RequestNull()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
 
             var response = await handler.IsValid(GetUserRequestNull);
@@ -51,17 +51,28 @@ namespace Order.API.UnitTest
         [TestMethod]
         public async Task Failure_Validations_RequestEmpty()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
 
             var response = await handler.IsValid(GetUserRequestEmpty);
             Assert.IsFalse(response.Success);
         }
 
+
+        [TestMethod]
+        public async Task Failure_Validations_RequestUsertException()
+        {
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+                  .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty, false)));
+
+            var response = await handler.IsValid(GetUserRequest);
+            Assert.IsFalse(response.Success);
+        }
+
         [TestMethod]
         public async Task Successfull_Validations()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
 
             var response = await handler.IsValid(GetUserRequest);
@@ -71,7 +82,7 @@ namespace Order.API.UnitTest
         [TestMethod]
         public async Task Successfull_Insert_User()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
 
             var response = await handler.Execute(GetUserRequest);
@@ -82,7 +93,7 @@ namespace Order.API.UnitTest
         [TestMethod]
         public async Task Failure_Insert_User()
         {
-            reposotory.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
 
             var response = await handler.Execute(GetUserRequest);
@@ -111,7 +122,9 @@ namespace Order.API.UnitTest
         public static UserCreatedRequest GetUserRequest => new UserCreatedRequest
         {
             UserName = "Jaime",
-            Password = "PassWord"
+            Password = "PassWord",
+            PasswordConfirm = "PassWord"
+
         };
     }
 }
