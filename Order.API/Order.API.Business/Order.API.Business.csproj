@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Orders\WishListCreatedHandler.cs" />
+    <Compile Include="Orders\WishListFilterListHandler.cs" />
+    <Compile Include="Orders\WishListUpdatedHandler.cs" />
     <Compile Include="Person\UserAuthenticateHandler.cs" />
     <Compile Include="Person\UserCreatedHandler.cs" />
     <Compile Include="Products\BookFilterHandler.cs" />

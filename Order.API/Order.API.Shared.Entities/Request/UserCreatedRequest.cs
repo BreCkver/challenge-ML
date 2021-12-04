@@ -3,6 +3,5 @@
     public class UserCreatedRequest : UserDTO
     {
         public string PasswordConfirm { get; set; }
-
     }
 }

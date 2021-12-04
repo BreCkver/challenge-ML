@@ -44,6 +44,8 @@
     <Compile Include="Error\ErrorCode.cs" />
     <Compile Include="Error\ErrorMessage.cs" />
     <Compile Include="IGoogleApiService.cs" />
+    <Compile Include="ICommandHandler.cs" />
+    <Compile Include="IOrderRepository.cs" />
     <Compile Include="IPersonHandler.cs" />
     <Compile Include="IProductHandler.cs" />
     <Compile Include="IUserRepository.cs" />

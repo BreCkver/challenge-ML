@@ -2,8 +2,10 @@
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.External;
+using Order.API.Shared.Entities.Parent;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Order.API.Shared.Framework.Helpers
@@ -11,17 +13,14 @@ namespace Order.API.Shared.Framework.Helpers
     public static class HelperConvert
     {
         public static UserDTO ConverToUserDTO(this UserCreatedRequest request)
+        => new UserDTO
         {
-            return new UserDTO
-            {
-                UserName = request.UserName,
-                Password = request.Password,
-            };
-        }
-
+            UserName = request.UserName,
+            Password = request.Password,
+        };
         public static ResponseGeneric<BookResponse> MapBooksExternal(BookExternalResponse external)
         {
-            if(external == null || external.items == null || external.items.Count <= 0)
+            if (external == null || external.items == null || external.items.Count <= 0)
             {
                 return ResponseGeneric.CreateError<BookResponse>(new Error(ErrorCode.EXTERNALAPI_EMPTY, ErrorMessage.EXTERNALAPI_EMPTY, ErrorType.BUSINESS));
             }
@@ -43,7 +42,7 @@ namespace Order.API.Shared.Framework.Helpers
 
         public static ResponseGeneric<BookExtendedDTO> MapBookExternal(BookExternal external)
         {
-            if (external == null || external.volumeInfo == null )
+            if (external == null || external.volumeInfo == null)
             {
                 return ResponseGeneric.CreateError<BookExtendedDTO>(new Error(ErrorCode.EXTERNALAPI_EMPTY, ErrorMessage.EXTERNALAPI_EMPTY, ErrorType.BUSINESS));
             }
@@ -65,5 +64,27 @@ namespace Order.API.Shared.Framework.Helpers
 
             return ResponseGeneric.Create(book);
         }
+
+        public static OrderDTO ConverToOrderDTO(this WishListCreatedRequest request)
+           => new OrderDTO
+           {
+               Name = request.Name,
+           };
+
+        public static OrderDTO ConverToOrderDTO(this WishListRequest request)
+           => new OrderDTO
+           {
+               Name = request.WishList.Name,
+               Identifier = request.WishList.Identifier,
+               Status = request.WishList.Status,
+           };
+
+        public static List<WishListDTO> ConvertToWishLists(this IEnumerable<OrderDTO> list)
+            => list.Select(l => new WishListDTO
+            {
+                Identifier = l.Identifier,
+                Name = l.Name,
+                Status = l.Status
+            }).ToList();
     }
 }

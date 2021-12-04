@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Order.API.Business.Contracts.Error
 {
     public static class ErrorCode
@@ -15,5 +10,8 @@ namespace Order.API.Business.Contracts.Error
         public const string PASSWORD_DIFFERENT = "400_0005";
         public const string USERNAME_NOEXISTS = "401_006";
         public const string EXTERNALAPI_EMPTY = "400_0007";
+        public const string WISHLIST_EXISTS = "400_008";
+        public const string USER_NOEXISTS = "400_009";
+        public const string WISHLIST_NOEXISTS = "400_010";
     }
 }
