@@ -29,6 +29,7 @@ namespace Order.API.Business.Person
                     var respose = new UserResponse { User = new UserDTO { UserName = newUser.UserName, Token = "" } };
                     return ResponseGeneric.Create(respose);
                 }
+                return ResponseGeneric.CreateError<UserResponse>(newUserResponse.ErrorList);
             }
             return ResponseGeneric.CreateError<UserResponse>(userValidate.ErrorList);
         }

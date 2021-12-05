@@ -1,5 +1,3 @@
-C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csprojAssemblyReference.cache
-C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.dll.config
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.pdb
@@ -101,6 +99,8 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Razo
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Antlr3.Runtime.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csprojAssemblyReference.cache
+C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.pdb

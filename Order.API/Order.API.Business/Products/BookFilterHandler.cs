@@ -56,7 +56,7 @@ namespace Order.API.Business.Products
 
             if (UserExists.Value == null)
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_NOEXISTS, ErrorMessage.USERNAME_NOEXISTS, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USER_NOEXISTS, ErrorMessage.USER_NOEXISTS, ErrorType.BUSINESS));
             }
             return ResponseGeneric.Create(true);
         }
