@@ -65,12 +65,6 @@ namespace Order.API.Shared.Framework.Helpers
             return ResponseGeneric.Create(book);
         }
 
-        public static OrderDTO ConverToOrderDTO(this WishListCreatedRequest request)
-           => new OrderDTO
-           {
-               Name = request.Name,
-           };
-
         public static OrderDTO ConverToOrderDTO(this WishListRequest request)
            => new OrderDTO
            {

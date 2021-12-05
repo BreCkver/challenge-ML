@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Order.API.Business.Contracts;
@@ -13,9 +12,16 @@ namespace Order.API.UnitTest
     [TestClass]
     public class WishListCreatedTest
     {
+        #region "  Vars Defined  "
+
+
         private WishListCreatedHandler handler;
         private Mock<IUserRepository> userRepository;
         private Mock<IOrderRepository> orderRepository;
+
+        #endregion
+
+        #region " Methods Initials  "
 
         [TestInitialize]
         public void Initialize()
@@ -32,93 +38,34 @@ namespace Order.API.UnitTest
 
             orderRepository.Setup(x => x.GetOrder(It.IsAny<OrderDTO>(), It.IsAny<int>()))
                 .Returns(Task.FromResult(ResponseGeneric.Create(orderNull)));
+
+            orderRepository.Setup(x => x.Insert(It.IsAny<OrderDTO>(), It.IsAny<int>()))
+                .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderExists)));
         }
 
-        [TestMethod]
-        public async Task Failure_Validations_RequestNull()
-        {
-            var response = await handler.IsValid(GetWishListRequestNull);
-            Assert.IsFalse(response.Success);
-        }
+        #endregion
 
-        [TestMethod]
-        public async Task Failure_Validations_RequestEmpty()
-        {
-            var response = await handler.IsValid(GetWishListRequestEmpty);
-            Assert.IsFalse(response.Success);
-        }
-
-        [TestMethod]
-        public async Task Failure_Validations_RequestUserNoExists()
-        {
-            userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
-
-            var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsFalse(response.Success);
-        }
+        #region "  Properties  "
 
 
-        [TestMethod]
-        public async Task Failure_Validations_RequestUsertException()
-        {
-            userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                  .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull, false)));
-
-            var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsFalse(response.Success);
-        }
-
-        [TestMethod]
-        public async Task Failure_Validations_RequestWLExists()
-        {
-            orderRepository.Setup(x => x.GetOrder(It.IsAny<OrderDTO>(), It.IsAny<int>()))
-               .Returns(Task.FromResult(ResponseGeneric.Create(orderExists)));
-
-            var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsFalse(response.Success);
-        }
-
-
-        [TestMethod]
-        public async Task Failure_Validations_RequestWLException()
-        {
-            orderRepository.Setup(x => x.GetOrder(It.IsAny<OrderDTO>(), It.IsAny<int>()))
-              .Returns(Task.FromResult(ResponseGeneric.Create(orderExists, false)));
-
-            var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsFalse(response.Success);
-        }
-
-
-        [TestMethod]
-        public async Task Successfull_Validations()
-        {
-            var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsTrue(response.Success);
-        }
-
-
-        public WishListCreatedRequest GetWishListRequestNull;
-
-        public static WishListCreatedRequest GetWishListRequestEmpty => new WishListCreatedRequest
+        public static WishListRequest GetWishListRequest => new WishListRequest
         {
             User = new UserDTO
             {
-                Identifier = 0,
-                Token = ""
+                Identifier = 12313,
+                Token = "TokenEmpty"
             },
-            Name = ""
+            WishList = new WishListDTO
+            {
+                Name = "My first WishList"
+            }
         };
 
-        public static WishListCreatedRequest GetWishListRequest => new WishListCreatedRequest
+        public OrderDTO GetOrderExists = new OrderDTO
         {
-            User = new UserDTO
-            {
-                Identifier = 8721,
-                Token = "Token1231"
-            },
-            Name = "Mi primer WishList"
+            Name = "Exists",
+            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
+            Identifier = 1234
         };
 
         public UserDTO GetUser = new UserDTO
@@ -127,11 +74,74 @@ namespace Order.API.UnitTest
         };
         public UserDTO GetUserNull;
         public OrderDTO orderNull;
-        public OrderDTO orderExists = new OrderDTO
+
+        #endregion
+
+        #region "  Test Methods  "
+
+
+        [TestMethod]
+        public async Task Failure_Validations_RequestWLExists()
         {
-            Name = "Exists",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
-            Identifier = 1234
-        };
+            orderRepository.Setup(x => x.GetOrder(It.IsAny<OrderDTO>(), It.IsAny<int>()))
+               .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderExists)));
+
+            var response = await handler.IsValid(GetWishListRequest);
+            Assert.IsFalse(response.Success);
+        }
+        [TestMethod]
+        public async Task Failure_Validations_RequestWLException()
+        {
+            orderRepository.Setup(x => x.GetOrder(It.IsAny<OrderDTO>(), It.IsAny<int>()))
+               .Returns(Task.FromResult(ResponseGeneric.Create(orderNull, false)));
+
+            var response = await handler.IsValid(GetWishListRequest);
+            Assert.IsFalse(response.Success);
+        }
+
+        [TestMethod]
+        public async Task Failure_Validations_RequestUserNull()
+        {
+            userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
+
+            var response = await handler.IsValid(GetWishListRequest);
+            Assert.IsFalse(response.Success);
+        }
+
+        [TestMethod]
+        public async Task Successfull_Validations()
+        {
+            var response = await handler.IsValid(GetWishListRequest);
+            Assert.IsTrue(response.Success);
+        }
+
+        [TestMethod]
+        public async Task Successfull_Created_WithList()
+        {
+            var response = await handler.Execute(GetWishListRequest);
+            Assert.IsTrue(response.Success);
+        }
+
+        [TestMethod]
+        public async Task Failure_Created_WithListException()
+        {
+            orderRepository.Setup(x => x.Insert(It.IsAny<OrderDTO>(), It.IsAny<int>()))
+                .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderExists, false)));
+            var response = await handler.Execute(GetWishListRequest);
+            Assert.IsFalse(response.Success);
+        }
+
+        [TestMethod]
+        public async Task Failure_Created_WithListValidation()
+        {
+            userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
+
+            var response = await handler.Execute(GetWishListRequest);
+            Assert.IsFalse(response.Success);
+        }
+
+        #endregion
     }
 }

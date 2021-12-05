@@ -2,27 +2,24 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Order.API.Business.Contracts;
-using Order.API.Business.Contracts.Error;
+using Order.API.Business.Validations.Orders;
 using Order.API.Shared.Entities;
-using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Business.Orders
 {
-    public class WishListFilterListHandler : ICommandHandler<WishListFilterRequest, WishListFilterResponse>
+    public class WishListFilterListHandler : OrderBaseValidator, ICommandHandler<WishListRequest, WishListFilterResponse>
     {
-        private readonly IUserRepository userRepository;
         private readonly IOrderRepository orderRepository;
 
-        public WishListFilterListHandler(IUserRepository userRepository, IOrderRepository orderRepository)
+        public WishListFilterListHandler(IUserRepository userRepository, IOrderRepository orderRepository) : base(userRepository, orderRepository)
         {
-            this.userRepository = userRepository;
             this.orderRepository = orderRepository;
         }
 
-        public async Task<ResponseGeneric<WishListFilterResponse>> Execute(WishListFilterRequest request)
+        public async Task<ResponseGeneric<WishListFilterResponse>> Execute(WishListRequest request)
         {
             var filterValidated = await IsValid(request);
             if (filterValidated.Success)
@@ -32,10 +29,6 @@ namespace Order.API.Business.Orders
                 {
                     return wishListsResult.AsError<WishListFilterResponse>();
                 }
-                if (wishListsResult.Value == null)
-                {
-                    return ResponseGeneric.CreateError<WishListFilterResponse>(new Error(ErrorCode.WISHLIST_EXISTS, ErrorMessage.WISHLIST_EXISTS, ErrorType.BUSINESS));
-                }
                 var wishList = wishListsResult.Value == null || !wishListsResult.Value.Any() ? new List<WishListDTO>() : wishListsResult.Value.ConvertToWishLists();
                 var response = new WishListFilterResponse { WishLists = wishList };
                 return ResponseGeneric.Create(response);
@@ -43,30 +36,21 @@ namespace Order.API.Business.Orders
             return ResponseGeneric.CreateError<WishListFilterResponse>(filterValidated.ErrorList);
         }
 
-        public async Task<ResponseGeneric<bool>> IsValid(WishListFilterRequest request)
+        public async Task<ResponseGeneric<bool>> IsValid(WishListRequest request)
         {
-            if (request == null || request.User == null)
-            {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_NULL, ErrorMessage.REQUEST_NULL, ErrorType.BUSINESS));
-            }
-            if (ValidateRequest(request))
-            {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
-            }
-            var UserExistsResult = await userRepository.GetByUser(request.User);
-            if (UserExistsResult.Failure)
-            {
-                return UserExistsResult.AsError<bool>();
-            }
-            if (UserExistsResult.Value == null)
-            {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USER_NOEXISTS, ErrorMessage.USER_NOEXISTS, ErrorType.BUSINESS));
-            }
+            var validationResult = await IsRequestValid(request);
+            if (validationResult.Failure)
+                return ResponseGeneric.CreateError<bool>(validationResult.ErrorList);
             return ResponseGeneric.Create(true);
         }
 
-        private bool ValidateRequest(WishListFilterRequest request) =>
-         string.IsNullOrWhiteSpace(request.User.Token) ||
-           request.User.Identifier == default;
+        protected override bool ValidatedEmptys(WishListRequest request) =>
+            string.IsNullOrWhiteSpace(request.User.Token) ||
+                request.User.Identifier == default;
+
+        protected override Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
+        {
+            return Task.FromResult(ResponseGeneric.Create(true));
+        }
     }
 }

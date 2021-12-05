@@ -54,8 +54,6 @@
     <Compile Include="Parent\OrderDTO.cs" />
     <Compile Include="ProductDTO.cs" />
     <Compile Include="Request\BookFilterRequest.cs" />
-    <Compile Include="Request\WishListCreatedRequest.cs" />
-    <Compile Include="Request\WishListFilterRequest.cs" />
     <Compile Include="Request\WishListRequest.cs" />
     <Compile Include="ResponseGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
