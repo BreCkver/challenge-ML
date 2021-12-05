@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Order.API.Shared.Entities.Parent;
+using System.Collections.Generic;
 
 namespace Order.API.Shared.Entities
 {

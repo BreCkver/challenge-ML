@@ -5,6 +5,6 @@ namespace Order.API.Business.Contracts
 {
     public interface IValidator<in T>
     {
-        Task<ResponseGeneric> IsRequestValid(T request);
+        Task<ResponseGeneric<bool>> IsRequestValid(T request);
     }
 }

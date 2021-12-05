@@ -18,7 +18,7 @@ namespace Order.API.Business.Validations.Orders
             this.orderRepository = orderRepository;
         }
 
-        public async Task<ResponseGeneric> IsRequestValid(WishListRequest request)
+        public async Task<ResponseGeneric<bool>> IsRequestValid(WishListRequest request)
         {
             if (request == null || request.User == null || request.WishList == null)
             {
@@ -49,7 +49,7 @@ namespace Order.API.Business.Validations.Orders
 
         protected virtual async Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
         {
-            var wishListExistsResult = await orderRepository.GetOrder(request.ConverToOrderDTO(), request.User.Identifier);
+            var wishListExistsResult = await orderRepository.GetOrder(request.WishList, request.User.Identifier);
             if (wishListExistsResult.Failure)
             {
                 return wishListExistsResult.AsError<bool>();

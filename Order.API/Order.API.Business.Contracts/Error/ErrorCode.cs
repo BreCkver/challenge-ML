@@ -13,5 +13,8 @@ namespace Order.API.Business.Contracts.Error
         public const string WISHLIST_EXISTS = "400_008";
         public const string USER_NOEXISTS = "400_009";
         public const string WISHLIST_NOEXISTS = "400_010";
+        public const string PRODUCT_EXISTS = "400_011";
+        public const string PRODUCT_NOEXISTS = "400_012";
+        public const string WISHLIST_EMPTY = "400_013";
     }
 }

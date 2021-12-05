@@ -25,7 +25,7 @@ namespace Order.API.Business.Orders
             var orderValidated = await IsValid(request);
             if (orderValidated.Success)
             {
-                var orderInsertResult = await orderRepository.Insert(request.ConverToOrderDTO(), request.User.Identifier);
+                var orderInsertResult = await orderRepository.Insert(request.WishList, request.User.Identifier);
                 if (orderInsertResult.Success)
                 {
                     var withlistNew = orderInsertResult.Value;

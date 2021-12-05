@@ -52,8 +52,9 @@
     <Compile Include="External\BookExternalResponse.cs" />
     <Compile Include="External\BookExternal.cs" />
     <Compile Include="Parent\OrderDTO.cs" />
-    <Compile Include="ProductDTO.cs" />
+    <Compile Include="Parent\ProductDTO.cs" />
     <Compile Include="Request\BookFilterRequest.cs" />
+    <Compile Include="Request\WishListDetailRequest.cs" />
     <Compile Include="Request\WishListRequest.cs" />
     <Compile Include="ResponseGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Response\Meta.cs" />
     <Compile Include="Response\Response.cs" />
     <Compile Include="Response\UserResponse.cs" />
+    <Compile Include="Response\WishListDetailResponse.cs" />
     <Compile Include="Response\WishListFilterResponse.cs" />
     <Compile Include="Response\WishListResponse.cs" />
     <Compile Include="UserDTO.cs" />

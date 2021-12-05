@@ -50,6 +50,7 @@ namespace Order.API.UnitTest
 
         public UserDTO GetUserNull;
 
+
         public UserDTO GetUser = new UserDTO
         {
             Identifier = GetWishListRequest.User.Identifier,
@@ -81,6 +82,7 @@ namespace Order.API.UnitTest
             new OrderDTO { Identifier = 2, Name = "Act", Status = Shared.Entities.Enums.EnumOrderStatus.Active}
         };
 
+
         #endregion
 
         #region "  Test Methods  "
@@ -90,7 +92,7 @@ namespace Order.API.UnitTest
         public async Task Failure_Validations()
         {
             userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
+                .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
 
             var response = await handler.IsValid(GetWishListRequest);
             Assert.IsFalse(response.Success);
@@ -124,7 +126,7 @@ namespace Order.API.UnitTest
         public async Task Failure_Get_WithListValidation()
         {
             userRepository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
+            .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
 
             var response = await handler.Execute(GetWishListRequest);
             Assert.IsFalse(response.Success);

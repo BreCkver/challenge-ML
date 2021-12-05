@@ -13,5 +13,8 @@ namespace Order.API.Business.Contracts.Error
         public const string WISHLIST_EXISTS = "The wishlist name is already taken";
         public const string USER_NOEXISTS = "The user provided no exists";
         public const string WISHLIST_NOEXISTS = "The WishList provided no exists";
+        public const string PRODUCT_EXISTS = "The product(s) with Identifier: {0} is already taken to wishList";
+        public const string PRODUCT_NOEXISTS = "The product(s) con Identifier: {0} doesn't exists in wishList";
+        public const string WISHLIST_EMPTY = "Product can't be updated, because the wishlist is empty";
     }
 }
