@@ -64,12 +64,17 @@
   <ItemGroup>
     <Compile Include="BookFilterTest.cs" />
     <Compile Include="BookFilterItemTest.cs" />
+    <Compile Include="Mocks\WishListDetailHandlerMock.cs" />
     <Compile Include="Mocks\WishListHandlerMock.cs" />
     <Compile Include="OrderBaseValidatorTest.cs" />
+    <Compile Include="OrderDetailBaseValidatorTest.cs" />
     <Compile Include="UserAuthenticateTest.cs" />
     <Compile Include="UserCreatedTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WishListCreatedTest.cs" />
+    <Compile Include="WishListDetailAddTest.cs" />
+    <Compile Include="WishListDetailFilterListTest.cs" />
+    <Compile Include="WishListDetailUpdatedTest.cs" />
     <Compile Include="WishListFilterListTest.cs" />
     <Compile Include="WishListUpdatedTest.cs" />
   </ItemGroup>

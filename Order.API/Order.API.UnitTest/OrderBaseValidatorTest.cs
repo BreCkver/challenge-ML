@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Order.API.Business.Contracts;
-using Order.API.Business.Orders;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Parent;
 using Order.API.Shared.Entities.Request;
@@ -85,12 +84,6 @@ namespace Order.API.UnitTest
             Name = "Exists",
             Status = Shared.Entities.Enums.EnumOrderStatus.Active,
             Identifier = 1234
-        };
-
-        public IEnumerable<OrderDTO> GetOrderList = new List<OrderDTO>
-        {
-            new OrderDTO { Identifier = 1, Name = "Est", Status = Shared.Entities.Enums.EnumOrderStatus.Active},
-            new OrderDTO { Identifier = 2, Name = "Act", Status = Shared.Entities.Enums.EnumOrderStatus.Active}
         };
 
         #endregion

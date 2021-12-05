@@ -9,7 +9,7 @@ namespace Order.API.Host.Factory
 {
     public class UserFactory
     {
-        private readonly string connectionString;
+        private readonly string connectionString = "";
 
         public ResponseGeneric<IPersonHandler<UserRequest,UserResponse>> Create(UserRequest request)
         {

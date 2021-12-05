@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrdersDetail\WishListDetailAddHandler.cs" />
+    <Compile Include="OrdersDetail\WishListDetailFilterListHandler.cs" />
+    <Compile Include="OrdersDetail\WishListDetailUpdatedHandler.cs" />
     <Compile Include="Orders\WishListCreatedHandler.cs" />
     <Compile Include="Orders\WishListFilterListHandler.cs" />
     <Compile Include="Orders\WishListUpdatedHandler.cs" />
@@ -50,6 +53,7 @@
     <Compile Include="Products\BookFilterItemHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\Orders\OrderBaseValidator.cs" />
+    <Compile Include="Validations\Orders\OrderDetailBaseValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Order.API.Business.Contracts\Order.API.Business.Contracts.csproj">
