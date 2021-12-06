@@ -2,10 +2,10 @@
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="4.7.922.0">
   <Summary numSequencePoints="5030" visitedSequencePoints="1639" numBranchPoints="4076" visitedBranchPoints="1001" sequenceCoverage="32.58" branchCoverage="24.56" maxCyclomaticComplexity="34" minCyclomaticComplexity="1" maxCrapScore="812" minCrapScore="1" visitedClasses="217" numClasses="418" visitedMethods="486" numMethods="1558" />
   <Modules>
-    <Module hash="99-FC-29-C7-50-40-A8-40-2D-86-9B-FD-F1-91-0D-6C-84-B9-22-B4">
+    <Module hash="E5-AF-2D-A3-CA-9A-35-56-19-6B-70-0D-95-09-05-CF-92-1D-96-9E">
       <Summary numSequencePoints="560" visitedSequencePoints="560" numBranchPoints="314" visitedBranchPoints="233" sequenceCoverage="100" branchCoverage="74.20" maxCyclomaticComplexity="4" minCyclomaticComplexity="1" maxCrapScore="4" minCrapScore="1" visitedClasses="95" numClasses="95" visitedMethods="144" numMethods="144" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.UnitTest.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:38:28.4299351Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:37.5100852Z</ModuleTime>
       <ModuleName>Order.API.UnitTest</ModuleName>
       <Files>
         <File uid="1" fullPath="C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\BookFilterTest.cs" />
@@ -5092,7 +5092,7 @@
     <Module hash="06-58-29-88-98-8B-E1-78-05-4C-DA-16-64-00-32-07-54-E5-D7-41">
       <Summary numSequencePoints="402" visitedSequencePoints="395" numBranchPoints="361" visitedBranchPoints="291" sequenceCoverage="98.26" branchCoverage="80.61" maxCyclomaticComplexity="14" minCyclomaticComplexity="1" maxCrapScore="14" minCrapScore="1" visitedClasses="44" numClasses="44" visitedMethods="63" numMethods="63" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.Business.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:32:31.7827092Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:35.0310393Z</ModuleTime>
       <ModuleName>Order.API.Business</ModuleName>
       <Files>
         <File uid="191" fullPath="C:\Repository\challenge-ML\Order.API\Order.API.Business\Validations\Orders\OrderBaseValidator.cs" />
@@ -7501,15 +7501,15 @@
     <Module hash="3F-F7-6E-67-DE-5A-B9-32-3F-53-19-7E-CD-A2-D1-78-C8-9C-29-DA">
       <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.Business.Contracts.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:32:30.8085481Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:34.2870986Z</ModuleTime>
       <ModuleName>Order.API.Business.Contracts</ModuleName>
       <Files />
       <Classes />
     </Module>
-    <Module hash="F5-E5-4E-56-52-4C-D1-93-AE-46-31-91-5F-B5-C3-36-9E-E3-A1-1A">
+    <Module hash="51-92-8B-90-1F-B4-34-37-C8-6E-0B-0B-85-3A-EC-20-7D-5F-7F-50">
       <Summary numSequencePoints="186" visitedSequencePoints="117" numBranchPoints="150" visitedBranchPoints="104" sequenceCoverage="62.90" branchCoverage="69.33" maxCyclomaticComplexity="5" minCyclomaticComplexity="0" maxCrapScore="30" minCrapScore="0" visitedClasses="24" numClasses="28" visitedMethods="102" numMethods="142" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.Shared.Entities.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:32:30.4234979Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:33.7791058Z</ModuleTime>
       <ModuleName>Order.API.Shared.Entities</ModuleName>
       <Files>
         <File uid="279" fullPath="C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\BookDTO.cs" />
@@ -9003,10 +9003,10 @@
               <Name>System.Int32 Order.API.Shared.Entities.Parent.ProductDTO::get_Identifier()</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="33" uspid="2096" ordinal="0" offset="0" sl="11" sc="38" el="11" ec="42" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="33" uspid="2096" ordinal="0" offset="0" sl="6" sc="38" el="6" ec="42" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="33" uspid="2096" ordinal="0" offset="0" sl="11" sc="38" el="11" ec="42" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="33" uspid="2096" ordinal="0" offset="0" sl="6" sc="38" el="6" ec="42" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" crapScore="1" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="1" minCrapScore="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -9014,10 +9014,10 @@
               <Name>System.Void Order.API.Shared.Entities.Parent.ProductDTO::set_Identifier(System.Int32)</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="25" uspid="2097" ordinal="0" offset="0" sl="11" sc="33" el="11" ec="37" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="25" uspid="2097" ordinal="0" offset="0" sl="6" sc="33" el="6" ec="37" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="25" uspid="2097" ordinal="0" offset="0" sl="11" sc="33" el="11" ec="37" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="25" uspid="2097" ordinal="0" offset="0" sl="6" sc="33" el="6" ec="37" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" crapScore="1" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="1" minCrapScore="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -9025,10 +9025,10 @@
               <Name>System.String Order.API.Shared.Entities.Parent.ProductDTO::get_ExternalIdentifier()</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="97" uspid="2098" ordinal="0" offset="0" sl="12" sc="49" el="12" ec="53" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="97" uspid="2098" ordinal="0" offset="0" sl="7" sc="49" el="7" ec="53" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="97" uspid="2098" ordinal="0" offset="0" sl="12" sc="49" el="12" ec="53" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="97" uspid="2098" ordinal="0" offset="0" sl="7" sc="49" el="7" ec="53" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" crapScore="1" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="1" minCrapScore="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -9036,10 +9036,10 @@
               <Name>System.Void Order.API.Shared.Entities.Parent.ProductDTO::set_ExternalIdentifier(System.String)</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="78" uspid="2099" ordinal="0" offset="0" sl="12" sc="44" el="12" ec="48" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="78" uspid="2099" ordinal="0" offset="0" sl="7" sc="44" el="7" ec="48" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="78" uspid="2099" ordinal="0" offset="0" sl="12" sc="44" el="12" ec="48" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="78" uspid="2099" ordinal="0" offset="0" sl="7" sc="44" el="7" ec="48" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" crapScore="1" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="1" minCrapScore="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -9047,10 +9047,10 @@
               <Name>System.String Order.API.Shared.Entities.Parent.ProductDTO::get_Description()</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="19" uspid="2100" ordinal="0" offset="0" sl="13" sc="42" el="13" ec="46" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="19" uspid="2100" ordinal="0" offset="0" sl="8" sc="42" el="8" ec="46" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="2100" ordinal="0" offset="0" sl="13" sc="42" el="13" ec="46" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="2100" ordinal="0" offset="0" sl="8" sc="42" el="8" ec="46" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" crapScore="1" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="1" minCrapScore="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -9058,10 +9058,10 @@
               <Name>System.Void Order.API.Shared.Entities.Parent.ProductDTO::set_Description(System.String)</Name>
               <FileRef uid="302" />
               <SequencePoints>
-                <SequencePoint vc="30" uspid="2101" ordinal="0" offset="0" sl="13" sc="37" el="13" ec="41" bec="0" bev="0" fileid="302" />
+                <SequencePoint vc="30" uspid="2101" ordinal="0" offset="0" sl="8" sc="37" el="8" ec="41" bec="0" bev="0" fileid="302" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="30" uspid="2101" ordinal="0" offset="0" sl="13" sc="37" el="13" ec="41" bec="0" bev="0" fileid="302" />
+              <MethodPoint xsi:type="SequencePoint" vc="30" uspid="2101" ordinal="0" offset="0" sl="8" sc="37" el="8" ec="41" bec="0" bev="0" fileid="302" />
             </Method>
             <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" crapScore="2" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" maxCrapScore="2" minCrapScore="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" />
@@ -31046,7 +31046,7 @@
     <Module hash="49-D8-4E-48-37-2B-7C-EB-83-A6-88-46-C7-EC-BB-FC-D4-49-EA-58">
       <Summary numSequencePoints="52" visitedSequencePoints="40" numBranchPoints="26" visitedBranchPoints="16" sequenceCoverage="76.92" branchCoverage="61.54" maxCyclomaticComplexity="6" minCyclomaticComplexity="1" maxCrapScore="7.33" minCrapScore="1" visitedClasses="3" numClasses="3" visitedMethods="4" numMethods="4" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.Data.Agent.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:32:33.0759096Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:36.7260889Z</ModuleTime>
       <ModuleName>Order.API.Data.Agent</ModuleName>
       <Files>
         <File uid="843" fullPath="C:\Repository\challenge-ML\Order.API\Order.API.Data.Agent\GoogleApiService.cs" />
@@ -31240,7 +31240,7 @@
     <Module hash="5C-DA-2D-8A-67-9A-BA-91-03-34-23-DE-76-11-75-66-89-C1-B1-C5">
       <Summary numSequencePoints="19" visitedSequencePoints="17" numBranchPoints="49" visitedBranchPoints="30" sequenceCoverage="89.47" branchCoverage="61.22" maxCyclomaticComplexity="22" minCyclomaticComplexity="1" maxCrapScore="33.29" minCrapScore="1" visitedClasses="2" numClasses="2" visitedMethods="7" numMethods="7" />
       <ModulePath>C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\fine-code-coverage\build-output\Order.API.Shared.Framework.dll</ModulePath>
-      <ModuleTime>2021-12-05T19:32:31.1205946Z</ModuleTime>
+      <ModuleTime>2021-12-06T14:36:34.5070906Z</ModuleTime>
       <ModuleName>Order.API.Shared.Framework</ModuleName>
       <Files>
         <File uid="849" fullPath="C:\Repository\challenge-ML\Order.API\Order.API.Shared.Framework\Helpers\HelperConvert.cs" />

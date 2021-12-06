@@ -7,8 +7,8 @@ C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\bin\Debug\Mic
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csprojAssemblyReference.cache
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.dll
 C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.pdb
+C:\Repository\challenge-ML\Order.API\bin\Order.API.IntegrationTest\obj\Debug\Order.API.IntegrationTest.csprojAssemblyReference.cache

@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.9" DspName="Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider" CollationLcid="1033" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="True" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="True" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="130" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="Order.API.DataBase.dll" />
+			<Metadata Name="FileName" Value="C:\REPOSITORY\CHALLENGE-ML\ORDER.API\ORDER.API.DATABASE\OBJ\DEBUG\ORDER.API.DATABASE.DLL" />
+			<Metadata Name="AssemblyName" Value="Order.API.DataBase" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
+			<Property Name="IsAnsiNullDefaultOn" Value="True" />
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Property Name="IsAnsiWarningsOn" Value="True" />
+			<Property Name="IsArithAbortOn" Value="True" />
+			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="PageVerifyMode" Value="3" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Property Name="QueryStoreStaleQueryThreshold" Value="367" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[OrderDetail]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[Identifier]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[OrderIdentifier]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[ExternalIdentifier]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[Description]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[KeyWords]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[Title]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[Author]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="200" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[Publisher]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[OrderStatusId]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[CreatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetail].[UpdatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Orders]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[Identifier]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Property Name="IdentitySeed" Value="100" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[UserIdentifier]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[Name]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrderTypeId]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrderStatusId]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[CreatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[UpdatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_OrderDetail]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[OrderDetail].[Identifier]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[OrderDetail]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="3" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Orders]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Orders].[Identifier]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="4" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Users]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Users].[Identifier]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Users]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Users]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[Identifier]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Property Name="IdentitySeed" Value="150" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[UserName]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[PassWord]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[UserStatusId]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[CreatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Users].[UpdatedDate]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="5" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_Order_GETL]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                          
+BEGIN      
+
+ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;               
+ SET NOCOUNT ON;
+
+	SELECT 
+		 Identifier
+		,UserIdentifier
+		,Name
+		,OrderTypeId
+		,OrderStatusId
+		,CreatedDate
+	FROM 
+		Orders
+	WHERE
+		UserIdentifier	= @pi_UserId		
+		      
+ SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
+ SET NOCOUNT OFF;              
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[Identifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[UserIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrderTypeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[CreatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_GETL].[@pi_UserId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_GETL].[@pi_UserId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="421" />
+				<Property Name="Length" Value="939" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================            &#xD;&#xA;-- Author: &lt;JAIME REYES VEREA&gt;            &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;          &#xD;&#xA;-- Desc: &lt;GET Order&gt;       &#xD;&#xA;--=============================================================================================================================================            &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_Order_GETL]      &#xD;&#xA;@pi_UserId&#x9;&#x9;&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_Order_INS]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                      
+BEGIN  
+	
+	DECLARE @orderIdentifier INT
+	
+	INSERT INTO Orders 
+	(	
+		UserIdentifier,
+		Name,
+		OrderTypeId,
+		OrderStatusId,
+		CreatedDate
+	)
+	VALUES
+	(
+		@pi_UserId, 
+		@pc_Name,
+		@pi_OrderTypeId,
+		@pi_OrderStatusId,
+		GETDATE()
+	)
+	
+	SET @orderIdentifier = SCOPE_IDENTITY()
+	SELECT @orderIdentifier
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[UserIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrderTypeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[CreatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_INS].[@pi_UserId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_INS].[@pc_Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_INS].[@pi_OrderTypeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_INS].[@pi_OrderStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_INS].[@pi_UserId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_INS].[@pc_Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_INS].[@pi_OrderTypeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_INS].[@pi_OrderStatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="440" />
+				<Property Name="Length" Value="978" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================              &#xD;&#xA;-- Author: &lt;Jaime Reyes Verea&gt;              &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;              &#xD;&#xA;-- Desc: &lt;INSERT NEW ORDER&gt;                  &#xD;&#xA;--=============================================================================================================================================     &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_Order_INS]  &#xD;&#xA;@pi_UserId&#x9;&#x9;&#x9;INT,  &#xD;&#xA;@pc_Name&#x9;&#x9;&#x9;VARCHAR(100),&#xD;&#xA;@pi_OrderTypeId&#x9;&#x9;INT,&#xD;&#xA;@pi_OrderStatusId&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_Order_UPD]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                          
+BEGIN      
+
+ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;               
+ SET NOCOUNT ON;
+
+	UPDATE Orders
+	SET 
+		Name = COALESCE(@pc_Name, Name),
+		OrderStatusId = COALESCE(@pi_OrderStatusId, OrderStatusId),
+		UpdatedDate = GETDATE()
+	WHERE
+		Identifier	= @pi_OrderId		
+		      
+ SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
+ SET NOCOUNT OFF;              
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_UPD].[@pc_Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_UPD].[@pi_OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[UpdatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[Identifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Order_UPD].[@pi_OrderId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_UPD].[@pi_OrderId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_UPD].[@pc_Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Order_UPD].[@pi_OrderStatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="425" />
+				<Property Name="Length" Value="1018" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================            &#xD;&#xA;-- Author: &lt;JAIME REYES VEREA&gt;            &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;          &#xD;&#xA;-- Desc: &lt;Updated Order&gt;       &#xD;&#xA;--=============================================================================================================================================            &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_Order_UPD]      &#xD;&#xA;@pi_OrderId&#x9;&#x9;&#x9;INT,&#xD;&#xA;@pc_Name&#x9;&#x9;&#x9;VARCHAR(100),&#xD;&#xA;@pi_OrderStatusId&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_OrderDetail_GETL]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                          
+BEGIN      
+
+ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;               
+ SET NOCOUNT ON;
+
+	SELECT 
+		 Identifier
+		,OrderIdentifier
+		,ExternalIdentifier
+		,[Description]
+		,KeyWords
+		,Title
+		,OrderStatusId
+		,CreatedDate
+	FROM 
+		OrderDetail
+	WHERE
+		OrderIdentifier	= @pi_OrderIdentifier
+	AND OrderStatusId	= 1
+		      
+ SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
+ SET NOCOUNT OFF;              
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[OrderDetail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Identifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[OrderIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[ExternalIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[KeyWords]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[CreatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_GETL].[@pi_OrderIdentifier]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_GETL].[@pi_OrderIdentifier]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="427" />
+				<Property Name="Length" Value="1036" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================            &#xD;&#xA;-- Author: &lt;JAIME REYES VEREA&gt;            &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;          &#xD;&#xA;-- Desc: &lt;GET OrderDetail&gt;       &#xD;&#xA;--=============================================================================================================================================            &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_OrderDetail_GETL]      &#xD;&#xA;@pi_OrderIdentifier&#x9;&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_OrderDetail_INS]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                      
+BEGIN  
+	
+	DECLARE @orderIdentifier INT
+	
+	INSERT INTO OrderDetail 
+	(	
+		 OrderIdentifier
+		,ExternalIdentifier
+		,[Description]
+		,KeyWords
+		,Title
+		,OrderStatusId
+		,CreatedDate
+	)
+	VALUES
+	(
+		@pi_OrderIdentifier,
+		@pc_ExternalIdentifier,
+		@pc_Description,
+		@pc_KeyWords,
+		@pc_Title,
+		@pi_OrderStatusId,
+		GETDATE()
+	)
+	
+	SET @orderIdentifier = SCOPE_IDENTITY()
+	SELECT @orderIdentifier
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[OrderIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[ExternalIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[KeyWords]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[CreatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pi_OrderIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pc_ExternalIdentifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pc_Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pc_KeyWords]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pc_Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_INS].[@pi_OrderStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pi_OrderIdentifier]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_ExternalIdentifier]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_Description]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_KeyWords]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_Title]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_Author]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="200" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pc_Publisher]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_INS].[@pi_OrderStatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="440" />
+				<Property Name="Length" Value="1227" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================              &#xD;&#xA;-- Author: &lt;Jaime Reyes Verea&gt;              &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;              &#xD;&#xA;-- Desc: &lt;INSERT NEW ORDER&gt;                  &#xD;&#xA;--=============================================================================================================================================     &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_OrderDetail_INS]  &#xD;&#xA;@pi_OrderIdentifier&#x9;&#x9;INT,&#xD;&#xA;@pc_ExternalIdentifier&#x9;VARCHAR(50),&#xD;&#xA;@pc_Description&#x9;&#x9;&#x9;VARCHAR(500),&#xD;&#xA;@pc_KeyWords&#x9;&#x9;&#x9;VARCHAR(30),&#xD;&#xA;@pc_Title&#x9;&#x9;&#x9;&#x9;VARCHAR(50),&#xD;&#xA;@pc_Author&#x9;&#x9;&#x9;&#x9;VARCHAR(200),&#xD;&#xA;@pc_Publisher&#x9;&#x9;&#x9;VARCHAR(100),&#xD;&#xA;@pi_OrderStatusId&#x9;&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_OrderDetail_UPD]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                          
+BEGIN      
+
+ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;               
+ SET NOCOUNT ON;
+
+	UPDATE OrderDetail
+	SET 
+		OrderStatusId	= COALESCE(@pi_OrderStatusId, OrderStatusId),
+		UpdatedDate		= GETDATE()
+	WHERE
+		Identifier	= @pi_OrderIdentifier		
+		      
+ SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
+ SET NOCOUNT OFF;              
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[OrderDetail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_UPD].[@pi_OrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[UpdatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetail].[Identifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_OrderDetail_UPD].[@pi_OrderIdentifier]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_UPD].[@pi_OrderIdentifier]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_OrderDetail_UPD].[@pi_OrderStatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="425" />
+				<Property Name="Length" Value="986" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================            &#xD;&#xA;-- Author: &lt;JAIME REYES VEREA&gt;            &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;          &#xD;&#xA;-- Desc: &lt;Updated Order&gt;       &#xD;&#xA;--=============================================================================================================================================            &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_OrderDetail_UPD]      &#xD;&#xA;@pi_OrderIdentifier&#x9;&#x9;INT,&#xD;&#xA;@pi_OrderStatusId&#x9;&#x9;INT&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_User_INS]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                      
+BEGIN  
+	
+	DECLARE @userIdentifier INT
+	
+	INSERT INTO Users 
+	(	
+		UserName, 
+		[PassWord], 
+		UserStatusId, 
+		CreatedDate
+	)
+	VALUES
+	(
+		@pc_userName, 
+		@pc_PassWord,
+		@pi_StatusId,
+		GETDATE()
+	)
+	
+	SET @userIdentifier = SCOPE_IDENTITY()
+	SELECT @userIdentifier
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[UserName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[PassWord]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[UserStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[CreatedDate]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_User_INS].[@pc_userName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_User_INS].[@pc_PassWord]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_User_INS].[@pi_StatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_User_INS].[@pc_userName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_User_INS].[@pc_PassWord]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_User_INS].[@pi_StatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="439" />
+				<Property Name="Length" Value="922" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================              &#xD;&#xA;-- Author: &lt;Jaime Reyes Verea&gt;              &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;              &#xD;&#xA;-- Desc: &lt;INSERT NEW USER&gt;                  &#xD;&#xA;--=============================================================================================================================================     &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_User_INS]  &#xD;&#xA;@pc_userName&#x9;VARCHAR(100),  &#xD;&#xA;@pc_PassWord&#x9;VARCHAR(100),&#xD;&#xA;@pi_StatusId&#x9;INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[usp_Users_GETL]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[                                                                          
+BEGIN      
+
+ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;               
+ SET NOCOUNT ON;
+
+	SELECT 
+		 Identifier
+		,UserName
+		,[PassWord]
+		,UserStatusId 
+	FROM 
+		Users
+	WHERE
+		Identifier	= COALESCE(@pi_UserId, Identifier) 
+	AND UserName	= COALESCE(@pc_userName, UserName) 
+	AND [PassWord]	= COALESCE(@pc_PassWord, [PassWord])
+		
+		      
+ SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
+ SET NOCOUNT OFF;              
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Users]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[Identifier]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[UserName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[PassWord]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Users].[UserStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Users_GETL].[@pi_UserId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Users_GETL].[@pc_userName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[usp_Users_GETL].[@pc_PassWord]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Users_GETL].[@pi_UserId]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Users_GETL].[@pc_userName]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[usp_Users_GETL].[@pc_PassWord]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="420" />
+				<Property Name="Length" Value="1109" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="--=============================================================================================================================================            &#xD;&#xA;-- Author: &lt;JAIME REYES VEREA&gt;            &#xD;&#xA;-- Date:  &lt;2021-12-06&gt;          &#xD;&#xA;-- Desc: &lt;GET USER&gt;       &#xD;&#xA;--=============================================================================================================================================            &#xD;&#xA;CREATE PROCEDURE [dbo].[usp_Users_GETL]      &#xD;&#xA;@pi_UserId&#x9;&#x9;INT&#x9;&#x9;&#x9;= NULL,&#xD;&#xA;@pc_userName&#x9;VARCHAR(100)= NULL,  &#xD;&#xA;@pc_PassWord&#x9;VARCHAR(100)= NULL&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+	</Model>
+</DataSchemaModel>

@@ -1,0 +1,12 @@
+06/12/2021 08:18:06 a. m.	This log contains information about the import operation of the script '00_Create_Tables.sql' into project 'Order.API.DataBase' on computer 'LAPTOP-M55A0O0C' by user'roliv.
+06/12/2021 08:18:06 a. m.	Started importing file: D:\Jaime\Proyectos\Challenge-ML\00_Create_Tables.sql 
+06/12/2021 08:18:06 a. m.	File name D:\Jaime\Proyectos\Challenge-ML\00_Create_Tables.sql (size: 945)
+06/12/2021 08:18:06 a. m.	Parsing import script
+06/12/2021 08:18:06 a. m.	Total number of batches in script: 3
+06/12/2021 08:18:06 a. m.	Total number of statements in script: 3
+06/12/2021 08:18:06 a. m.	The script was successfully imported into the project.
+06/12/2021 08:18:06 a. m.	Analyzing schema objects...
+06/12/2021 08:18:07 a. m.	Scanning project for duplicate elements
+06/12/2021 08:18:07 a. m.	Finished duplicate element processing
+06/12/2021 08:18:08 a. m.	A summary of the import was saved to the following location: C:\Repository\challenge-ML\Order.API\Order.API.DataBase\Import Script Logs\00_Create_Tables_sql_20211206021806.log
+06/12/2021 08:18:08 a. m.	Click Finish to continue...

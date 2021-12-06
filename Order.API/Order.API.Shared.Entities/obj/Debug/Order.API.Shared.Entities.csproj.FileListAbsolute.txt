@@ -6,3 +6,4 @@ C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.A
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Shared.Entities\obj\Debug\Order.API.Shared.Entities.csprojAssemblyReference.cache
