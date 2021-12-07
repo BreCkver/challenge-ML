@@ -40,9 +40,9 @@ namespace Order.API.Business.Orders
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListRequest request) =>
-         string.IsNullOrWhiteSpace(request.User.Token) ||
-           request.User.Identifier == default ||
-            request.WishList.Identifier == default;
+        protected override bool ValidateRequest(WishListRequest request) =>
+           request.User.Identifier == null ||
+            request.WishList.Identifier == default ||
+                request.WishList.Status != Shared.Entities.Enums.EnumOrderStatus.Deleted;
     }
 }

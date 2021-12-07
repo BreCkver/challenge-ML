@@ -5,7 +5,7 @@
 --=============================================================================================================================================            
 CREATE PROCEDURE [dbo].[usp_Order_UPD]      
 @pi_OrderId			INT,
-@pc_Name			VARCHAR(100),
+@pc_Name			VARCHAR(100) = NULL,
 @pi_OrderStatusId	INT
 AS                                                                          
 BEGIN      
@@ -15,7 +15,7 @@ BEGIN
 
 	UPDATE Orders
 	SET 
-		Name = COALESCE(@pc_Name, Name),
+		[Name] = COALESCE(@pc_Name, [Name]),
 		OrderStatusId = COALESCE(@pi_OrderStatusId, OrderStatusId),
 		UpdatedDate = GETDATE()
 	WHERE

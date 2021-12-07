@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Order.API.Business.Contracts;
 using Order.API.Business.Contracts.Error;
 using Order.API.Business.Validations.Orders;
@@ -25,7 +27,7 @@ namespace Order.API.Business.Orders
             var orderValidated = await IsValid(request);
             if (orderValidated.Success)
             {
-                var orderInsertResult = await orderRepository.Insert(request.WishList, request.User.Identifier);
+                var orderInsertResult = await orderRepository.Insert(request.WishList, request.User.Identifier.Value);
                 if (orderInsertResult.Success)
                 {
                     var withlistNew = orderInsertResult.Value;
@@ -41,25 +43,31 @@ namespace Order.API.Business.Orders
         {
             var validationResult = await base.IsRequestValid(request);
             if (validationResult.Failure)
+            {
                 return ResponseGeneric.CreateError<bool>(validationResult.ErrorList);
+            }
+            if (!request.WishList.Name.ValidateCharacters())
+            {
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_NOALPHANUMERIC, ErrorMessage.REQUEST_NOALPHANUMERIC, ErrorType.BUSINESS));
+            }
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListRequest request)
+        protected override bool ValidateRequest(WishListRequest request)
        =>
-            string.IsNullOrWhiteSpace(request.User.Token) ||
-             request.User.Identifier == default ||
+            request.User.Identifier == null ||
               string.IsNullOrWhiteSpace(request.WishList.Name) ||
-               request.WishList.Name.Length > 50;
+               request.WishList.Name.Length > 100   ||
+                 request.WishList.Status != EnumOrderStatus.New;
 
         protected override async Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
         {
-            var wishListExistsResult = await orderRepository.GetOrder(request.ConverToOrderDTO(), request.User.Identifier);
+            var wishListExistsResult = await orderRepository.GetOrder(request.ConverToOrderDTO(), request.User.Identifier.Value);
             if (wishListExistsResult.Failure)
             {
                 return wishListExistsResult.AsError<bool>();
             }
-            if (wishListExistsResult.Value != null)
+            if (wishListExistsResult.Value != null && wishListExistsResult.Value.Status == EnumOrderStatus.Active)
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.WISHLIST_EXISTS, ErrorMessage.WISHLIST_EXISTS, ErrorType.BUSINESS));
             }

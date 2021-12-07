@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\Orders\OrderBaseValidator.cs" />
     <Compile Include="Validations\Orders\OrderDetailBaseValidator.cs" />
+    <Compile Include="Validations\Persons\UserBaseValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Order.API.Business.Contracts\Order.API.Business.Contracts.csproj">

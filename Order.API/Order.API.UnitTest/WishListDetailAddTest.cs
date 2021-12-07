@@ -70,8 +70,8 @@ namespace Order.API.UnitTest
 
         public static IEnumerable<BookDTO> GetBookList = new List<BookDTO>
         {
-            new BookDTO { ExternalIdentifier = "0001", Title ="Title 01", Keyword = "Titles...0"},
-            new BookDTO { ExternalIdentifier = "0002", Title ="Title 02", Keyword = "Titles...1"}
+            new BookDTO { ExternalIdentifier = "0001", Title ="Title 01", Keyword = "Titles 0", Authors = new List<string>{"Author 01"}, Publisher="Publisher 01"},
+            new BookDTO { ExternalIdentifier = "0002", Title ="Title 02", Keyword = "Titles 1", Authors = new List<string>{"Author 01"}, Publisher="Publisher 01"}
         };
 
         public static IEnumerable<BookDTO> GetBookListEmpty = new List<BookDTO>();
@@ -101,7 +101,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetBookList)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -111,21 +112,24 @@ namespace Order.API.UnitTest
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetBookList, false)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Validations()
         {
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Add()
         {
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
@@ -134,7 +138,8 @@ namespace Order.API.UnitTest
             orderDetailRepository.Setup(x => x.Add(It.IsAny<OrderDTO>(), It.IsAny<IEnumerable<BookDTO>>()))
              .Returns(Task.FromResult(ResponseGeneric.Create(true, false)));
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -144,7 +149,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetBookList)));
 
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
 

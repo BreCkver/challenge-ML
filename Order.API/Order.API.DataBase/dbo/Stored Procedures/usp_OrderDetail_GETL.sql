@@ -18,14 +18,16 @@ BEGIN
 		,[Description]
 		,KeyWords
 		,Title
+		,Author
+		,Publisher
 		,OrderStatusId
 		,CreatedDate
 	FROM 
 		OrderDetail
 	WHERE
 		OrderIdentifier	= @pi_OrderIdentifier
-	AND OrderStatusId	= 1
+	AND OrderStatusId	= 2
 		      
  SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
  SET NOCOUNT OFF;              
-END
+END 

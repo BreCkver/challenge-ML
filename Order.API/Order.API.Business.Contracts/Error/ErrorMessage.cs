@@ -16,5 +16,6 @@ namespace Order.API.Business.Contracts.Error
         public const string PRODUCT_EXISTS = "The product(s) with Identifier: {0} is already taken to wishList";
         public const string PRODUCT_NOEXISTS = "The product(s) con Identifier: {0} doesn't exists in wishList";
         public const string WISHLIST_EMPTY = "Product can't be updated, because the wishlist is empty";
+        public const string REQUEST_NOALPHANUMERIC = "The request can has alphanumeric characters only";
     }
 }

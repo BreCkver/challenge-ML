@@ -49,12 +49,43 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="OrderDetailTest\WishListDetailAddTest.cs" />
+    <Compile Include="OrderDetailTest\WishListDetailFilterListTest.cs" />
+    <Compile Include="OrderDetailTest\WishListDetailUpdatedTest.cs" />
+    <Compile Include="OrderTest\WishListCreatedTest.cs" />
+    <Compile Include="OrderTest\WishListFilterListTest.cs" />
+    <Compile Include="OrderTest\WishListUpdatedTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserTests\UserAuthenticateTest.cs" />
+    <Compile Include="UserTests\UserCreatedTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Order.API.Business.Contracts\Order.API.Business.Contracts.csproj">
+      <Project>{104373E8-5000-4B3D-AB76-B08D5CF4D271}</Project>
+      <Name>Order.API.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Order.API.Business\Order.API.Business.csproj">
+      <Project>{ABB5E5F8-2677-4A55-A1F8-830619891C03}</Project>
+      <Name>Order.API.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Order.API.Data\Order.API.Data.csproj">
+      <Project>{8ECDB571-61A6-43A3-B65F-0F590A26C1FC}</Project>
+      <Name>Order.API.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Order.API.Shared.Entities\Order.API.Shared.Entities.csproj">
+      <Project>{09594DB4-D588-4136-B267-B50CD4B7D90F}</Project>
+      <Name>Order.API.Shared.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Order.API.Shared.Framework\Order.API.Shared.Framework.csproj">
+      <Project>{529F5BBD-1A5A-4C32-86D8-6CE3B4D2A412}</Project>
+      <Name>Order.API.Shared.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

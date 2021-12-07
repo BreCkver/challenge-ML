@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Order.API.Business.Contracts;
 using Order.API.Business.Validations.Orders;
 using Order.API.Shared.Entities;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 using Order.API.Shared.Framework.Helpers;
@@ -24,12 +25,15 @@ namespace Order.API.Business.Orders
             var filterValidated = await IsValid(request);
             if (filterValidated.Success)
             {
-                var wishListsResult = await orderRepository.GetAllByUser(request.User.Identifier);
+                var wishListsResult = await orderRepository.GetAllByUser(request.User.Identifier.Value);
                 if (wishListsResult.Failure)
                 {
                     return wishListsResult.AsError<WishListFilterResponse>();
                 }
-                var wishList = wishListsResult.Value == null || !wishListsResult.Value.Any() ? new List<WishListDTO>() : wishListsResult.Value.ConvertToWishLists();
+                var wishList = 
+                        wishListsResult.Value == null || !wishListsResult.Value.Any() 
+                        ? new List<WishListDTO>() 
+                        : wishListsResult.Value.Where(wl => wl.Status == EnumOrderStatus.Active).ConvertToWishLists();
                 var response = new WishListFilterResponse { WishLists = wishList };
                 return ResponseGeneric.Create(response);
             }
@@ -44,9 +48,8 @@ namespace Order.API.Business.Orders
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListRequest request) =>
-            string.IsNullOrWhiteSpace(request.User.Token) ||
-                request.User.Identifier == default;
+        protected override bool ValidateRequest(WishListRequest request) =>
+           request.User.Identifier == default;
 
         protected override Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
         {

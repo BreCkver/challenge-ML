@@ -2,6 +2,7 @@
 using Order.API.Business.Contracts.Error;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Framework.Helpers;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Order.API.Business.Validations.Orders
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_NULL, ErrorMessage.REQUEST_NULL, ErrorType.BUSINESS));
             }
-            if (ValidatedEmptys(request))
+            if (ValidateRequest(request))
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
             }
@@ -49,18 +50,18 @@ namespace Order.API.Business.Validations.Orders
 
         protected virtual async Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
         {
-            var wishListExistsResult = await orderRepository.GetOrder(request.WishList, request.User.Identifier);
+            var wishListExistsResult = await orderRepository.GetOrder(request.WishList, request.User.Identifier.Value);
             if (wishListExistsResult.Failure)
             {
                 return wishListExistsResult.AsError<bool>();
             }
-            if (wishListExistsResult.Value == null)
+            if (wishListExistsResult.Value == null || wishListExistsResult.Value.Status != EnumOrderStatus.Active)
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.WISHLIST_NOEXISTS, ErrorMessage.WISHLIST_NOEXISTS, ErrorType.BUSINESS));
             }
             return ResponseGeneric.Create(true);
         }
 
-        protected abstract bool ValidatedEmptys(WishListRequest request);
+        protected abstract bool ValidateRequest(WishListRequest request);
     }
 }

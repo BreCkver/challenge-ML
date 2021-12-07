@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrderData.cs" />
+    <Compile Include="OrderDetailData.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +54,10 @@
     <ProjectReference Include="..\Order.API.Shared.Entities\Order.API.Shared.Entities.csproj">
       <Project>{09594DB4-D588-4136-B267-B50CD4B7D90F}</Project>
       <Name>Order.API.Shared.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Order.API.Shared.Framework\Order.API.Shared.Framework.csproj">
+      <Project>{529F5BBD-1A5A-4C32-86D8-6CE3B4D2A412}</Project>
+      <Name>Order.API.Shared.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

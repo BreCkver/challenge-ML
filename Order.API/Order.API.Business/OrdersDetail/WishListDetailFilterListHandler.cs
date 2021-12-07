@@ -26,7 +26,7 @@ namespace Order.API.Business.OrdersDetail
                 var orderListResult = await orderDetailRepository.GetAllByOrder(request.WishList);
                 if (orderListResult.Success)
                 {
-                    var respose = new WishListDetailResponse { WishList = new WishListDTO { BookList = orderListResult.Value.ToList() } };
+                    var respose = new WishListDetailResponse { WishList = new WishListDTO { Identifier = request.WishList.Identifier, BookList = orderListResult.Value.ToList() } };
                     return ResponseGeneric.Create(respose);
                 }
                 return orderListResult.AsError<WishListDetailResponse>();
@@ -42,8 +42,11 @@ namespace Order.API.Business.OrdersDetail
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListDetailRequest request)
-        =>  request.User.Identifier == default || request.WishList.Identifier == default;
+        protected override bool ValidateNulls(WishListDetailRequest request)
+        => request == null || request.User == null || request.WishList == null;
+
+        protected override bool ValidateRequest(WishListDetailRequest request)
+        => request.User.Identifier == null || request.WishList.Identifier == default;
 
         protected override Task<ResponseGeneric<bool>> ValidateProductExists(WishListDetailRequest request)
         => Task.FromResult(ResponseGeneric.Create(true));

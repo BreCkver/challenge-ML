@@ -27,6 +27,6 @@ namespace Order.API.UnitTest.Mocks
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListRequest request) => string.IsNullOrEmpty(request.User.Token) || string.IsNullOrWhiteSpace(request.WishList.Name);
+        protected override bool ValidateRequest(WishListRequest request) => string.IsNullOrEmpty(request.User.Token) || string.IsNullOrWhiteSpace(request.WishList.Name);
     }
 }

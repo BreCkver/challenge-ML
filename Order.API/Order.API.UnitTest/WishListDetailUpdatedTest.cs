@@ -6,6 +6,7 @@ using Moq;
 using Order.API.Business.Contracts;
 using Order.API.Business.OrdersDetail;
 using Order.API.Shared.Entities;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Parent;
 using Order.API.Shared.Entities.Request;
 
@@ -58,8 +59,8 @@ namespace Order.API.UnitTest
         {
             User = new UserDTO
             {
-                Identifier = 12313,
-                Token = "TokenEmpty"
+                Identifier = 12313
+            
             },
             WishList = new WishListDTO
             {
@@ -70,14 +71,14 @@ namespace Order.API.UnitTest
 
         public static IEnumerable<BookDTO> GetBookList = new List<BookDTO>
         {
-            new BookDTO { ExternalIdentifier = "0001", Title ="Title 01", Keyword = "Titles...0", Identifier = 1001},
-            new BookDTO { ExternalIdentifier = "0002", Title ="Title 02", Keyword = "Titles...1", Identifier = 1002}
+            new BookDTO { Identifier = 1001, Status = EnumProductStatus.Deleted},
+            new BookDTO { Identifier = 1002, Status = EnumProductStatus.Deleted}
         };
 
         public static IEnumerable<BookDTO> GetBookListWithItemDifferent = new List<BookDTO>
         {
-            new BookDTO { ExternalIdentifier = "0001", Title ="Title 01", Keyword = "Titles...0", Identifier = 1001},
-            new BookDTO { ExternalIdentifier = "0003", Title ="Title 03", Keyword = "Titles...2", Identifier = 1003}
+            new BookDTO { Identifier = 1001, Status = EnumProductStatus.Deleted},
+            new BookDTO { Identifier = 1003, Status = EnumProductStatus.Deleted}
         };
 
         public static IEnumerable<BookDTO> GetBookListEmpty = new List<BookDTO>();
@@ -107,7 +108,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetBookListEmpty)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -117,7 +119,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetBookListWithItemDifferent)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -127,21 +130,24 @@ namespace Order.API.UnitTest
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetBookList, false)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Validations()
         {
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Updated()
         {
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
@@ -150,7 +156,8 @@ namespace Order.API.UnitTest
             orderDetailRepository.Setup(x => x.Update(It.IsAny<OrderDTO>(), It.IsAny<IEnumerable<BookDTO>>()))
              .Returns(Task.FromResult(ResponseGeneric.Create(true, false)));
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -160,7 +167,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetBookListEmpty)));
 
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
 

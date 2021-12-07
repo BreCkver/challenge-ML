@@ -4,9 +4,8 @@
 -- Desc: <Updated Order>       
 --=============================================================================================================================================            
 CREATE PROCEDURE [dbo].[usp_OrderDetail_UPD]      
-@pi_OrderIdentifier		INT,
+@pi_OrderDetailId		INT,
 @pi_OrderStatusId		INT
-
 AS                                                                          
 BEGIN      
 
@@ -18,7 +17,7 @@ BEGIN
 		OrderStatusId	= COALESCE(@pi_OrderStatusId, OrderStatusId),
 		UpdatedDate		= GETDATE()
 	WHERE
-		Identifier	= @pi_OrderIdentifier		
+		Identifier	= @pi_OrderDetailId		
 		      
  SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
  SET NOCOUNT OFF;              

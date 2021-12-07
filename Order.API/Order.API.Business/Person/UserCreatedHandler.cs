@@ -1,32 +1,33 @@
 ﻿using System.Threading.Tasks;
 using Order.API.Business.Contracts;
 using Order.API.Business.Contracts.Error;
+using Order.API.Business.Validations.Persons;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
-using Order.API.Shared.Framework.Helpers;
+
 namespace Order.API.Business.Person
 {
-    public class UserCreatedHandler : IPersonHandler<UserCreatedRequest, UserResponse>
+    public class UserCreatedHandler : UserBaseValidator, IPersonHandler<UserRequest, UserResponse>
     {
-        private readonly IUserRepository repository;
+        private readonly IUserRepository userRepository;
 
-        public UserCreatedHandler(IUserRepository repository)
+        public UserCreatedHandler(IUserRepository repository) : base(repository)
         {
-            this.repository = repository;
+            this.userRepository = repository;
         }
 
-        public async Task<ResponseGeneric<UserResponse>> Execute(UserCreatedRequest request)
+        public async Task<ResponseGeneric<UserResponse>> Execute(UserRequest request)
         {
             var userValidate = await IsValid(request);
             if(userValidate.Success)
             {
-                var newUserResponse = await repository.Insert(request.ConverToUserDTO());
+                var newUserResponse = await userRepository.Insert(request);
                 if(newUserResponse.Success)
                 {
-                    var newUser = newUserResponse.Value;
-                    var respose = new UserResponse { User = new UserDTO { UserName = newUser.UserName, Token = "" } };
+                    var respose = new UserResponse { User = newUserResponse.Value };
                     return ResponseGeneric.Create(respose);
                 }
                 return ResponseGeneric.CreateError<UserResponse>(newUserResponse.ErrorList);
@@ -34,39 +35,26 @@ namespace Order.API.Business.Person
             return ResponseGeneric.CreateError<UserResponse>(userValidate.ErrorList);
         }
 
-        public async Task<ResponseGeneric<bool>> IsValid(UserCreatedRequest request)
+        public async Task<ResponseGeneric<bool>> IsValid(UserRequest request)
         {
-            if(request == null)
-            {
-                return ResponseGeneric.CreateError<bool>(new Error (ErrorCode.REQUEST_NULL, ErrorMessage.REQUEST_NULL, ErrorType.BUSINESS));
+            var validationResult = await base.IsRequestValid(request);
+            if (validationResult.Failure)
+            { 
+                return ResponseGeneric.CreateError<bool>(validationResult.ErrorList);
             }
-            if(ValidateRequest(request))
-            {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
-            }
-
-            var UserExists = await repository.GetByUser(request);
-            if(UserExists.Failure)
-            {
-                return UserExists.AsError<bool>();
-            }            
-            if(UserExists.Value != null)
+            if (request.Password != request.PasswordConfirm)
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_EXISTS, ErrorMessage.USERNAME_EXISTS, ErrorType.BUSINESS));
             }
-
-            if(request.Password != request.PasswordConfirm)
-            {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_EXISTS, ErrorMessage.USERNAME_EXISTS, ErrorType.BUSINESS));
-            }    
-
             return ResponseGeneric.Create(true);
         }
 
-        private bool ValidateRequest(UserCreatedRequest request) =>
+        protected override bool ValidateRequest(UserRequest request) =>
             string.IsNullOrWhiteSpace(request.UserName) ||
                 string.IsNullOrWhiteSpace(request.Password) ||
-                    request.UserName.Length > 30 ||
-                        request.Password.Length > 30;
+                    string.IsNullOrWhiteSpace(request.PasswordConfirm) ||
+                        request.UserName.Length > 100 ||
+                           request.Password.Length > 100 ||
+                              request.StatusIdentifier != (int)EnumUserStatus.New;
     }
 }

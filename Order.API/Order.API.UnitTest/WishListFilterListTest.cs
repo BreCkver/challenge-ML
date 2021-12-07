@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -95,21 +96,24 @@ namespace Order.API.UnitTest
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
 
             var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Validations()
         {
             var response = await handler.IsValid(GetWishListRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Get_WithList()
         {
             var response = await handler.Execute(GetWishListRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
@@ -119,7 +123,8 @@ namespace Order.API.UnitTest
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderList, false)));
 
             var response = await handler.Execute(GetWishListRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -129,7 +134,8 @@ namespace Order.API.UnitTest
             .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
 
             var response = await handler.Execute(GetWishListRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         #endregion

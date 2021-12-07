@@ -48,6 +48,9 @@
     <Compile Include="BookExtendedDTO.cs" />
     <Compile Include="Constants\ErrorType.cs" />
     <Compile Include="Enums\EnumOrderStatus.cs" />
+    <Compile Include="Enums\EnumOrderType.cs" />
+    <Compile Include="Enums\EnumProductStatus.cs" />
+    <Compile Include="Enums\EnumUserStatus.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="External\BookExternalResponse.cs" />
     <Compile Include="External\BookExternal.cs" />

@@ -8,7 +8,7 @@ using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
-
+using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Business.OrdersDetail
 {
@@ -41,19 +41,29 @@ namespace Order.API.Business.OrdersDetail
         {
             var validationResult = await base.IsRequestValid(request);
             if (validationResult.Failure)
+            {
                 return validationResult.AsError<bool>();
+            }            
+            if(!ValidateBooksSpecialCharacters(request.WishList.BookList))
+            {
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_NOALPHANUMERIC, ErrorMessage.REQUEST_NOALPHANUMERIC, ErrorType.BUSINESS));
+            }
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListDetailRequest request)
+        protected override bool ValidateRequest(WishListDetailRequest request)
         =>
             request.User.Identifier == default ||
-             request.WishList.Identifier == default ||
+              request.WishList.Identifier == default ||
                 ValidateBooks(request.WishList.BookList);
 
         private bool ValidateBooks(IEnumerable<BookDTO> bookList)
         =>
-            bookList.ToList().Any(book => string.IsNullOrWhiteSpace(book.Keyword) || string.IsNullOrWhiteSpace(book.Title) || string.IsNullOrWhiteSpace(book.ExternalIdentifier));
+            bookList.ToList().Any(book => string.IsNullOrWhiteSpace(book.Keyword) || 
+                        string.IsNullOrWhiteSpace(book.Title) || 
+                            string.IsNullOrWhiteSpace(book.ExternalIdentifier) ||
+                               book.Authors == null ||
+                                 string.IsNullOrWhiteSpace(book.Publisher));
 
         protected override async Task<ResponseGeneric<bool>> ValidateProductExists(WishListDetailRequest request)
         {
@@ -79,6 +89,24 @@ namespace Order.API.Business.OrdersDetail
                     );
             }
             return ResponseGeneric.Create(true);
-        }     
+        }
+
+
+        private bool ValidateBooksSpecialCharacters(IEnumerable<BookDTO> bookList)
+        {
+            foreach(var book in bookList)
+            {
+                if (book.Keyword.ValidateCharacters() &&
+                    book.Title.ValidateCharacters() &&
+                     book.Authors.All(a => a.ValidateCharacters()) &&
+                     book.Publisher.ValidateCharacters())
+                {
+                    continue;
+                }
+                else
+                    return false;
+            }
+            return true;
+        }
     }
 }
