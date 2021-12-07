@@ -12,11 +12,12 @@ namespace Order.API.Shared.Framework.Helpers
 {
     public static class HelperConvert
     {
-        public static UserDTO ConverToUserDTO(this UserCreatedRequest request)
+        public static UserDTO ConverToUserDTO(this UserRequest request)
         => new UserDTO
         {
             UserName = request.UserName,
             Password = request.Password,
+            StatusIdentifier = request.StatusIdentifier,
         };
         public static ResponseGeneric<BookResponse> MapBooksExternal(BookExternalResponse external)
         {

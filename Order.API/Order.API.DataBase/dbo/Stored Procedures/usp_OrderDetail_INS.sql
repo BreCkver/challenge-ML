@@ -1,7 +1,7 @@
 ﻿--=============================================================================================================================================              
 -- Author: <Jaime Reyes Verea>              
 -- Date:  <2021-12-06>              
--- Desc: <INSERT NEW ORDER>                  
+-- Desc: <INSERT NEW PRODUCT TO ORDER>                  
 --=============================================================================================================================================     
 CREATE PROCEDURE [dbo].[usp_OrderDetail_INS]  
 @pi_OrderIdentifier		INT,
@@ -14,8 +14,8 @@ CREATE PROCEDURE [dbo].[usp_OrderDetail_INS]
 @pi_OrderStatusId		INT
 AS                                                                      
 BEGIN  
-	
-	DECLARE @orderIdentifier INT
+
+	DECLARE @orderDetailIdentifier INT
 	
 	INSERT INTO OrderDetail 
 	(	
@@ -24,6 +24,8 @@ BEGIN
 		,[Description]
 		,KeyWords
 		,Title
+		,Author
+		,Publisher
 		,OrderStatusId
 		,CreatedDate
 	)
@@ -34,10 +36,12 @@ BEGIN
 		@pc_Description,
 		@pc_KeyWords,
 		@pc_Title,
+		@pc_Author,
+		@pc_Publisher,
 		@pi_OrderStatusId,
 		GETDATE()
 	)
 	
-	SET @orderIdentifier = SCOPE_IDENTITY()
-	SELECT @orderIdentifier
+	SET @orderDetailIdentifier = SCOPE_IDENTITY()
+	SELECT @orderDetailIdentifier
 END

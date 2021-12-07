@@ -16,5 +16,6 @@ namespace Order.API.Business.Contracts.Error
         public const string PRODUCT_EXISTS = "400_011";
         public const string PRODUCT_NOEXISTS = "400_012";
         public const string WISHLIST_EMPTY = "400_013";
+        public const string REQUEST_NOALPHANUMERIC = "400_014";
     }
 }

@@ -26,7 +26,7 @@ namespace Order.API.UnitTest.Mocks
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListDetailRequest request)
+        protected override bool ValidateRequest(WishListDetailRequest request)
         =>
           request.User.Identifier == default ||
            request.WishList.Identifier == default;

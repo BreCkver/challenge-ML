@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Order.API.Business.Contracts;
@@ -11,9 +12,14 @@ namespace Order.API.UnitTest
     [TestClass]
     public class UserCreatedTest
     {
+        #region "  Vars Defined  "
 
         private UserCreatedHandler handler;
         private Mock<IUserRepository> repository;
+
+        #endregion
+
+        #region " Methods Initials  "
 
         [TestInitialize]
         public void Initialize()
@@ -25,68 +31,54 @@ namespace Order.API.UnitTest
 
         public void Setup()
         {
+            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
+                .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
             repository.Setup(x => x.Insert(It.IsAny<UserDTO>()))
                 .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
         }
 
-        [TestMethod]
-        public async Task Failure_Validations()
+        #endregion
+
+        #region "  Properties  "
+
+        public UserDTO GetUserEmpty;
+
+        public UserDTO GetUser = new UserDTO
         {
-            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
-            var response = await handler.IsValid(GetUserRequest);
-            Assert.IsFalse(response.Success);
-        }
+            Identifier = 123,
+            UserName = GetUserRequest.UserName,
+            Token = GetUserRequest.Password
+        };
 
-        [TestMethod]
-        public async Task Failure_Validations_RequestNull()
+    
+        public static UserRequest GetUserRequestPasswordDifferent => new UserRequest
         {
-            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
-
-            var response = await handler.IsValid(GetUserRequestNull);
-            Assert.IsFalse(response.Success);
-        }
-
-        [TestMethod]
-        public async Task Failure_Validations_RequestEmpty()
+            UserName = "Jaime",
+            Password = "PassWord",
+            PasswordConfirm = "Error",
+            StatusIdentifier = (int)Shared.Entities.Enums.EnumUserStatus.New
+        };
+        public static UserRequest GetUserRequest => new UserRequest
         {
-            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
+            UserName = "Jaime",
+            Password = "PassWord",
+            PasswordConfirm = "PassWord",
+            StatusIdentifier = (int)Shared.Entities.Enums.EnumUserStatus.New
+        };
 
-            var response = await handler.IsValid(GetUserRequestEmpty);
-            Assert.IsFalse(response.Success);
-        }
+        #endregion
 
-
-        [TestMethod]
-        public async Task Failure_Validations_RequestUsertException()
-        {
-            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                  .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty, false)));
-
-            var response = await handler.IsValid(GetUserRequest);
-            Assert.IsFalse(response.Success);
-        }
+        #region "  Test Methods  "
 
         [TestMethod]
-        public async Task Successfull_Validations()
+        public async Task Failure_Validations_UserExists()
         {
             repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
+               .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
 
             var response = await handler.IsValid(GetUserRequest);
-            Assert.IsTrue(response.Success);
-        }
-
-        [TestMethod]
-        public async Task Successfull_Insert_User()
-        {
-            repository.Setup(x => x.GetByUser(It.IsAny<UserDTO>()))
-                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmpty)));
-
-            var response = await handler.Execute(GetUserRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
 
@@ -97,34 +89,34 @@ namespace Order.API.UnitTest
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUser)));
 
             var response = await handler.Execute(GetUserRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
-        public UserDTO GetUserEmpty;
-
-        public UserDTO GetUser = new UserDTO
+        [TestMethod]
+        public async Task Failure_Validations_PassWordDifferent()
         {
-            UserName = GetUserRequest.UserName,
-            Token = GetUserRequest.Password
-        };
+            var response = await handler.Execute(GetUserRequestPasswordDifferent);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
+        }
 
-
-        public static UserCreatedRequest GetUserRequestNull;
-
-
-        public static UserCreatedRequest GetUserRequestEmpty => new UserCreatedRequest
+        [TestMethod]
+        public async Task Successfull_Validations()
         {
-            UserName = "",
-            Password = "PassWord"
-        };
+            var response = await handler.IsValid(GetUserRequest);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
+        }
 
-
-        public static UserCreatedRequest GetUserRequest => new UserCreatedRequest
+        [TestMethod]
+        public async Task Successfull_Insert_User()
         {
-            UserName = "Jaime",
-            Password = "PassWord",
-            PasswordConfirm = "PassWord"
+            var response = await handler.Execute(GetUserRequest);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
+        }
 
-        };
+        #endregion
     }
 }

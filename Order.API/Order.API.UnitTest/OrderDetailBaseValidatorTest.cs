@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -72,7 +73,7 @@ namespace Order.API.UnitTest
         {
             User = new UserDTO
             {
-                Identifier = 0,
+                Identifier = null,
                 Token = ""
             },
             WishList = new WishListDTO
@@ -106,14 +107,16 @@ namespace Order.API.UnitTest
         public async Task Failure_Validations_RequestNull()
         {
             var response = await handler.IsValid(GetWishDetailListRequestNull);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Failure_Validations_RequestEmpty()
         {
             var response = await handler.IsValid(GetWishListDetailRequestEmpty);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -123,7 +126,8 @@ namespace Order.API.UnitTest
                    .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -133,7 +137,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserNull, false)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -143,7 +148,8 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderExists, false)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
 
@@ -154,21 +160,24 @@ namespace Order.API.UnitTest
               .Returns(Task.FromResult(ResponseGeneric.Create(GetOrderNull)));
 
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Validations()
         {
             var response = await handler.IsValid(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Successfull_Execute()
         {
             var response = await handler.Execute(GetWishListDetailRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
         }
 
         #endregion

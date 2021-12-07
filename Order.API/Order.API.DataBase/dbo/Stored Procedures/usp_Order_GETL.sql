@@ -4,7 +4,8 @@
 -- Desc: <GET Order>       
 --=============================================================================================================================================            
 CREATE PROCEDURE [dbo].[usp_Order_GETL]      
-@pi_UserId			INT
+@pi_UserId	INT,  
+@pc_Name	VARCHAR(100) = NULL
 AS                                                                          
 BEGIN      
 
@@ -14,14 +15,15 @@ BEGIN
 	SELECT 
 		 Identifier
 		,UserIdentifier
-		,Name
+		,[Name]
 		,OrderTypeId
 		,OrderStatusId
 		,CreatedDate
 	FROM 
 		Orders
 	WHERE
-		UserIdentifier	= @pi_UserId		
+		UserIdentifier	= @pi_UserId	
+	AND [Name]			= COALESCE(@pc_Name, [Name])
 		      
  SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
  SET NOCOUNT OFF;              

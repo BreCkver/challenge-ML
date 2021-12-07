@@ -1,8 +1,8 @@
 ﻿
 namespace Order.API.Shared.Entities.Request
 {
-    public class UserRequest
+    public class UserRequest : UserDTO
     {
-        public UserDTO User { set; get; }
+        public string PasswordConfirm { get; set; }
     }
 }

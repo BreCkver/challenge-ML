@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Order.API.Business.Contracts;
 using Order.API.Business.Contracts.Error;
@@ -6,6 +7,7 @@ using Order.API.Business.Validations.Orders;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.Enums;
+using Order.API.Shared.Entities.Parent;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 
@@ -44,11 +46,10 @@ namespace Order.API.Business.OrdersDetail
             return ResponseGeneric.Create(true);
         }
 
-        protected override bool ValidatedEmptys(WishListDetailRequest request)
+        protected override bool ValidateRequest(WishListDetailRequest request)
         =>
              request.User.Identifier == default ||
-              request.WishList.BookList.Any(b => b.Identifier == default) ||
-                request.WishList.Status != EnumOrderStatus.None;
+              request.WishList.BookList.Any(b => b.Identifier == default || b.Status != EnumProductStatus.Deleted);
 
         protected override async Task<ResponseGeneric<bool>> ValidateProductExists(WishListDetailRequest request)
         {
@@ -72,15 +73,24 @@ namespace Order.API.Business.OrdersDetail
             if (existsDuplicate.Any() && existsDuplicate.Count() != request.WishList.BookList.Count())
             {
 
-                var booksNoExists = request.WishList.BookList.Where(e => !existsDuplicate.Any(du => du.ExternalIdentifier == e.ExternalIdentifier));
+                var booksNoExists = request.WishList.BookList.Where(e => !existsDuplicate.Any(du => du.Identifier == e.Identifier));
                 return ResponseGeneric.CreateError<bool>(new Error
                     (
                         ErrorCode.PRODUCT_NOEXISTS,
-                        string.Format(ErrorMessage.PRODUCT_NOEXISTS, string.Join(",", booksNoExists.Select(d => d.ExternalIdentifier))),
+                        string.Format(ErrorMessage.PRODUCT_NOEXISTS, string.Join(",", booksNoExists.Select(d => d.Identifier))),
                         ErrorType.BUSINESS)
                     );
             }
             return ResponseGeneric.Create(true);
         }
+
+        protected override IEnumerable<ProductDTO> GetMatchElements(IEnumerable<BookDTO> bookListDB, IEnumerable<BookDTO> bookListReq) =>
+        bookListDB.Join(bookListReq,
+                externalIdBD => externalIdBD.Identifier,
+                externalIdRequest => externalIdRequest.Identifier,
+                (elementDB, elementRequest) => new ProductDTO
+                {
+                    Identifier = elementDB.Identifier
+                });
     }
 }
