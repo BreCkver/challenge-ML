@@ -47,8 +47,6 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IOrderDetailRepository.cs" />
     <Compile Include="IOrderRepository.cs" />
-    <Compile Include="IPersonHandler.cs" />
-    <Compile Include="IProductHandler.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -21,13 +21,13 @@ namespace Order.API.Business.Validations.Orders
 
         public async Task<ResponseGeneric<bool>> IsRequestValid(WishListRequest request)
         {
-            if (request == null || request.User == null || request.WishList == null)
+            if (ValidateNulls(request))
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_NULL, ErrorMessage.REQUEST_NULL, ErrorType.BUSINESS));
             }
             if (ValidateRequest(request))
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_WRONG, ErrorMessage.REQUEST_WRONG, ErrorType.BUSINESS));
             }
 
             var UserExistsResult = await userRepository.GetByUser(request.User);
@@ -55,13 +55,15 @@ namespace Order.API.Business.Validations.Orders
             {
                 return wishListExistsResult.AsError<bool>();
             }
-            if (wishListExistsResult.Value == null || wishListExistsResult.Value.Status != EnumOrderStatus.Active)
+            if (wishListExistsResult.Value == null || wishListExistsResult.Value.Status != (int)EnumOrderStatus.Active)
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.WISHLIST_NOEXISTS, ErrorMessage.WISHLIST_NOEXISTS, ErrorType.BUSINESS));
             }
             return ResponseGeneric.Create(true);
         }
 
+        protected virtual bool ValidateNulls(WishListRequest request)
+           => request == null || request.User == null || request.WishList == null;
         protected abstract bool ValidateRequest(WishListRequest request);
     }
 }

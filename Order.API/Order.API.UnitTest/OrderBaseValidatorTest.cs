@@ -82,7 +82,7 @@ namespace Order.API.UnitTest
         public OrderDTO GetOrderExists = new OrderDTO
         {
             Name = "Exists",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
+            Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active,
             Identifier = 1234
         };
 

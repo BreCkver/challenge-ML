@@ -57,10 +57,12 @@ namespace Order.API.Host.Extensions
             if (response.Failure)
             {
                 code = HttpStatusCode.InternalServerError;
-                if (response.ErrorList.Any(error => error.Code.Contains("INVALID_")))
+                if (response.ErrorList.Any(error => error.Code.Contains("400_")))
                     code = HttpStatusCode.BadRequest;
-                if (response.ErrorList.Any(error => error.Code.Contains("AUTH_")))
+                if (response.ErrorList.Any(error => error.Code.Contains("401_")))
                     code = HttpStatusCode.Unauthorized;
+                if (response.ErrorList.Any(error => error.Code.Contains("409_")))
+                    code = HttpStatusCode.Conflict;
                 return code;
             }
 

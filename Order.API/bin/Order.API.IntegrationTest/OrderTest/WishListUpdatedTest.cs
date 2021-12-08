@@ -25,8 +25,8 @@ namespace Order.API.IntegrationTest.OrderTest
             },
             WishList = new WishListDTO
             {
-                Identifier = 100,
-                Status = Shared.Entities.Enums.EnumOrderStatus.Deleted
+                Identifier = 152,
+                Status = (int)Shared.Entities.Enums.EnumOrderStatus.Deleted
             }
         };
 

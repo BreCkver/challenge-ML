@@ -1,7 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Order.API.Business.Contracts;
+using Order.API.Business.Contracts.Error;
 using Order.API.Business.Validations.Orders;
 using Order.API.Shared.Entities;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 using Order.API.Shared.Framework.Helpers;
@@ -43,6 +45,6 @@ namespace Order.API.Business.Orders
         protected override bool ValidateRequest(WishListRequest request) =>
            request.User.Identifier == null ||
             request.WishList.Identifier == default ||
-                request.WishList.Status != Shared.Entities.Enums.EnumOrderStatus.Deleted;
+                request.WishList.Status != (int)Shared.Entities.Enums.EnumOrderStatus.Deleted;
     }
 }

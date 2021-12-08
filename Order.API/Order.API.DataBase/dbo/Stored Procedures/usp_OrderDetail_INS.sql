@@ -6,8 +6,8 @@
 CREATE PROCEDURE [dbo].[usp_OrderDetail_INS]  
 @pi_OrderIdentifier		INT,
 @pc_ExternalIdentifier	VARCHAR(50),
-@pc_Description			VARCHAR(500),
-@pc_KeyWords			VARCHAR(30),
+@pc_Description			VARCHAR(500) = NULL,
+@pc_KeyWords			VARCHAR(30) = NULL,
 @pc_Title				VARCHAR(50),
 @pc_Author				VARCHAR(200),
 @pc_Publisher			VARCHAR(100),

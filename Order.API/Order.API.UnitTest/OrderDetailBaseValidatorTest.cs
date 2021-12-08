@@ -95,7 +95,7 @@ namespace Order.API.UnitTest
         public OrderDTO GetOrderExists = new OrderDTO
         {
             Name = "WishList Christmas",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
+            Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active,
             Identifier = 82247
         };
 

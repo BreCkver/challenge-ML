@@ -59,11 +59,11 @@ namespace Order.API.Business.OrdersDetail
 
         private bool ValidateBooks(IEnumerable<BookDTO> bookList)
         =>
-            bookList.ToList().Any(book => string.IsNullOrWhiteSpace(book.Keyword) || 
+            bookList.ToList().Any(book =>
                         string.IsNullOrWhiteSpace(book.Title) || 
                             string.IsNullOrWhiteSpace(book.ExternalIdentifier) ||
-                               book.Authors == null ||
-                                 string.IsNullOrWhiteSpace(book.Publisher));
+                               book.Publisher == null || 
+                                (book.Authors == null || book.Authors.Count <= 0));
 
         protected override async Task<ResponseGeneric<bool>> ValidateProductExists(WishListDetailRequest request)
         {
@@ -96,10 +96,9 @@ namespace Order.API.Business.OrdersDetail
         {
             foreach(var book in bookList)
             {
-                if (book.Keyword.ValidateCharacters() &&
-                    book.Title.ValidateCharacters() &&
-                     book.Authors.All(a => a.ValidateCharacters()) &&
-                     book.Publisher.ValidateCharacters())
+                if (book.Title.ToLower().ValidateCharactersSpecial() &&
+                     book.Authors.All(a => a.ToLower().ValidateCharactersSpecial()) &&
+                     book.Publisher.ToLower().ValidateCharactersSpecial())
                 {
                     continue;
                 }

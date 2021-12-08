@@ -58,14 +58,14 @@ namespace Order.API.UnitTest
             WishList = new WishListDTO
             {
                 Name = "My first WishList",
-                Status = Shared.Entities.Enums.EnumOrderStatus.New
+                Status = (int)Shared.Entities.Enums.EnumOrderStatus.New
             }
         };
 
         public OrderDTO GetOrderExists = new OrderDTO
         {
             Name = "Exists",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
+            Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active,
             Identifier = 1234
         };
 

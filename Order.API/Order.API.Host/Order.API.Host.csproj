@@ -170,10 +170,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Extensions\ResponseExtensions.cs" />
+    <Compile Include="Factory\BookFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Factory\WishListDetailFactory.cs" />
+    <Compile Include="Factory\WishListFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,6 +278,10 @@
       <Project>{ABB5E5F8-2677-4A55-A1F8-830619891C03}</Project>
       <Name>Order.API.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Order.API.Data.Agent\Order.API.Data.Agent.csproj">
+      <Project>{C24039F1-2E85-49BA-94F6-5A1C5B76FA30}</Project>
+      <Name>Order.API.Data.Agent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Order.API.Data\Order.API.Data.csproj">
       <Project>{8ECDB571-61A6-43A3-B65F-0F590A26C1FC}</Project>
       <Name>Order.API.Data</Name>
@@ -279,6 +289,10 @@
     <ProjectReference Include="..\Order.API.Shared.Entities\Order.API.Shared.Entities.csproj">
       <Project>{09594DB4-D588-4136-B267-B50CD4B7D90F}</Project>
       <Name>Order.API.Shared.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Order.API.Shared.Framework\Order.API.Shared.Framework.csproj">
+      <Project>{529F5BBD-1A5A-4C32-86D8-6CE3B4D2A412}</Project>
+      <Name>Order.API.Shared.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

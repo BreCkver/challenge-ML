@@ -6,7 +6,7 @@ namespace Order.API.Shared.Entities.Parent
     {
         public long Identifier { set; get; }
 
-        public EnumOrderStatus Status { set; get; }
+        public int Status { set; get; }
 
         public string Name { set; get; }
     }

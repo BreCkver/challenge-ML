@@ -3,6 +3,7 @@
     public enum EnumProductStatus
     {
         Active = 10,
-        Deleted = 11
+        Deleted = 11,
+        New = 12
     }
 }
