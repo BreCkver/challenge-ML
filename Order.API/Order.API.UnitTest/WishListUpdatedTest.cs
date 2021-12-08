@@ -67,7 +67,7 @@ namespace Order.API.UnitTest
             {
                 Identifier = 1331012,
                 Name = "New Name",
-                Status = Shared.Entities.Enums.EnumOrderStatus.Deleted
+                Status = (int)Shared.Entities.Enums.EnumOrderStatus.Deleted
             }
         };
 
@@ -75,7 +75,7 @@ namespace Order.API.UnitTest
         {
             Identifier = 1331012,
             Name = "New Name",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active
+            Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active
         };
 
         #endregion

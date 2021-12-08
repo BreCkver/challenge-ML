@@ -33,7 +33,7 @@ namespace Order.API.Business.Orders
                 var wishList = 
                         wishListsResult.Value == null || !wishListsResult.Value.Any() 
                         ? new List<WishListDTO>() 
-                        : wishListsResult.Value.Where(wl => wl.Status == EnumOrderStatus.Active).ConvertToWishLists();
+                        : wishListsResult.Value.Where(wl => wl.Status == (int)EnumOrderStatus.Active).ConvertToWishLists();
                 var response = new WishListFilterResponse { WishLists = wishList };
                 return ResponseGeneric.Create(response);
             }
@@ -55,5 +55,8 @@ namespace Order.API.Business.Orders
         {
             return Task.FromResult(ResponseGeneric.Create(true));
         }
+
+        protected override bool ValidateNulls(WishListRequest request)
+           => request == null || request.User == null;
     }
 }

@@ -10,7 +10,7 @@ namespace Order.API.Business.Products
     /// <summary>
     /// Clase has responsibility of get specific product in external api
     /// </summary>
-    public class BookFilterItemHandler : IProductHandler<BookFilterRequest, BookExtendedDTO>
+    public class BookFilterItemHandler : ICommandHandler<BookFilterRequest, BookExtendedDTO>
     {
         private readonly IGoogleApiService googleApiService;
         private readonly IUserRepository repository;
@@ -45,7 +45,7 @@ namespace Order.API.Business.Products
 
             if (ValidateRequest(request))
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_WRONG, ErrorMessage.REQUEST_WRONG, ErrorType.BUSINESS));
             }
 
             var UserExists = await repository.GetByUser(request.User);

@@ -36,12 +36,10 @@ namespace Order.API.Data
                         {
                             command.Parameters.Add(new SqlParameter("@pi_OrderIdentifier", order.Identifier));
                             command.Parameters.Add(new SqlParameter("@pc_ExternalIdentifier", book.ExternalIdentifier));
-                            command.Parameters.Add(new SqlParameter("@pc_Description", book.Description));
-                            command.Parameters.Add(new SqlParameter("@pc_KeyWords", book.Keyword));
                             command.Parameters.Add(new SqlParameter("@pc_Title", book.Title));
-                            command.Parameters.Add(new SqlParameter("@pc_Author", book.Authors.First()));
+                            command.Parameters.Add(new SqlParameter("@pc_Author", string.Join(",", book.Authors.Select(a => a))));
                             command.Parameters.Add(new SqlParameter("@pc_Publisher", book.Publisher));
-                            command.Parameters.Add(new SqlParameter("@pi_OrderStatusId", EnumOrderStatus.Active));
+                            command.Parameters.Add(new SqlParameter("@pi_OrderStatusId", (int)EnumProductStatus.Active));
                             var entityIdentifier = await command.ExecuteScalarAsync();
                             book.Identifier = entityIdentifier != null ? Convert.ToInt32(entityIdentifier) : 0;
                             command.Parameters.Clear();
@@ -74,7 +72,7 @@ namespace Order.API.Data
                     using (command.Connection)
                     {
                         command.Parameters.Add(new SqlParameter("@pi_OrderIdentifier", order.Identifier));
-
+                        command.Parameters.Add(new SqlParameter("@pi_OrderStatusId", EnumProductStatus.Active));
                         var reader = await command.ExecuteReaderAsync();
                         var columnIdentifier = reader.GetOrdinal("Identifier");
                         var columnOrderIdentifier = reader.GetOrdinal("OrderIdentifier");
@@ -90,8 +88,7 @@ namespace Order.API.Data
                             productList.Add(new BookDTO
                             {
                                 Identifier = !reader.IsDBNull(columnIdentifier) ? reader.GetInt32(columnIdentifier) : default,
-                                ExternalIdentifier = !reader.IsDBNull(columnExternalIdentifier) ? reader.GetString(columnExternalIdentifier) : string.Empty,
-                                Description = !reader.IsDBNull(columnDesciption) ? reader.GetString(columnDesciption) : string.Empty,
+                                ExternalIdentifier = !reader.IsDBNull(columnExternalIdentifier) ? reader.GetString(columnExternalIdentifier) : string.Empty,                              
                                 Keyword = !reader.IsDBNull(columnKeyWords) ? reader.GetString(columnKeyWords) : string.Empty,
                                 Title = !reader.IsDBNull(columnTitle) ? reader.GetString(columnTitle) : string.Empty,
                                 Authors = !reader.IsDBNull(columnTitle) ? new List<string> { reader.GetString(columnTitle) } : new List<string>(),

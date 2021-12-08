@@ -35,6 +35,8 @@ namespace Order.API.Shared.Framework.Helpers
                     ExternalIdentifier = i.id,
                     Title = i.volumeInfo?.title,
                     Publisher = i.volumeInfo?.publisher,
+                    Status = Entities.Enums.EnumProductStatus.New,
+                    Keyword = string.Empty
                 }).ToList()
             };
 
@@ -60,7 +62,10 @@ namespace Order.API.Shared.Framework.Helpers
                 PublishedDate = external.volumeInfo?.publishedDate,
                 SubTitle = external.volumeInfo?.subTitle,
                 Thumbnail = external.volumeInfo?.imageLinks?.thumbnail,
-                InfoLink = external.volumeInfo?.infoLink
+                InfoLink = external.volumeInfo?.infoLink,
+                Keyword = string.Empty,
+                Status = Entities.Enums.EnumProductStatus.Active,
+                
             };
 
             return ResponseGeneric.Create(book);
@@ -81,5 +86,12 @@ namespace Order.API.Shared.Framework.Helpers
                 Name = l.Name,
                 Status = l.Status
             }).ToList();
+
+        public static long? ValidateOrderIdentifier(long orderIdentifier)
+            =>
+                orderIdentifier == 0 ? (long?)null : orderIdentifier;
+        public static UserDTO ConverToUserDTONameOnly(UserDTO user)
+            =>
+                new UserDTO { UserName = user.UserName };
     }
 }

@@ -10,7 +10,7 @@ using Order.API.Shared.Entities.Response;
 
 namespace Order.API.Business.Person
 {
-    public class UserCreatedHandler : UserBaseValidator, IPersonHandler<UserRequest, UserResponse>
+    public class UserCreatedHandler : UserBaseValidator, ICommandHandler<UserRequest, UserResponse>
     {
         private readonly IUserRepository userRepository;
 
@@ -44,7 +44,7 @@ namespace Order.API.Business.Person
             }
             if (request.Password != request.PasswordConfirm)
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.USERNAME_EXISTS, ErrorMessage.USERNAME_EXISTS, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.PASSWORD_DIFFERENT, ErrorMessage.PASSWORD_DIFFERENT, ErrorType.BUSINESS));
             }
             return ResponseGeneric.Create(true);
         }

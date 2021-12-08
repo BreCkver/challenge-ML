@@ -7,7 +7,7 @@ using Order.API.Shared.Entities.Response;
 
 namespace Order.API.UnitTest.Mocks
 {
-    public class UserHandlerMock : UserBaseValidator, IPersonHandler<UserRequest, UserResponse>
+    public class UserHandlerMock : UserBaseValidator, ICommandHandler<UserRequest, UserResponse>
     {
         public UserHandlerMock(IUserRepository userRepository) : base(userRepository)
         {

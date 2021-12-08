@@ -11,7 +11,7 @@ namespace Order.API.Business.Products
     /// <summary>
     /// Clase has responsibility of search products in external api
     /// </summary>
-    public class BookFilterHandler : IProductHandler<BookFilterRequest, BookResponse>
+    public class BookFilterHandler : ICommandHandler<BookFilterRequest, BookResponse>
     {
         private readonly IGoogleApiService googleApiService;
         private readonly IUserRepository repository;
@@ -26,7 +26,7 @@ namespace Order.API.Business.Products
             if (requestValid.Success)
             {
                 var respose = await googleApiService.GetBooksFilter(request.Book.Keyword, request.Book.Title, request.Book.Publisher, request.Book.Authors[0]);
-                if(respose.Failure)
+                if (respose.Failure)
                 {
                     return ResponseGeneric.CreateError<BookResponse>(respose.ErrorList);
                 }
@@ -45,7 +45,7 @@ namespace Order.API.Business.Products
 
             if (ValidateRequest(request))
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_WRONG, ErrorMessage.REQUEST_WRONG, ErrorType.BUSINESS));
             }
 
             var UserExists = await repository.GetByUser(request.User);
@@ -62,12 +62,11 @@ namespace Order.API.Business.Products
         }
 
         private bool ValidateRequest(BookFilterRequest request) =>
-        string.IsNullOrWhiteSpace(request.User.Token) ||
-        string.IsNullOrWhiteSpace(request.Book.Keyword) ||
-             (
-                (request.Book.Authors == null || request.Book.Authors.Count <= 0) && 
+        request.User.Identifier == null ||
+            (
+                (request.Book.Authors == null || request.Book.Authors.Count <= 0) &&
                   string.IsNullOrWhiteSpace(request.Book.Title) &&
                   string.IsNullOrWhiteSpace(request.Book.Publisher)
-             );
+            );
     }
 }

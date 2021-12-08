@@ -73,14 +73,14 @@ namespace Order.API.UnitTest
         public OrderDTO GetOrderExists = new OrderDTO
         {
             Name = "Exists",
-            Status = Shared.Entities.Enums.EnumOrderStatus.Active,
+            Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active,
             Identifier = 1234
         };
 
         public IEnumerable<OrderDTO> GetOrderList = new List<OrderDTO>
         {
-            new OrderDTO { Identifier = 1, Name = "Est", Status = Shared.Entities.Enums.EnumOrderStatus.Active},
-            new OrderDTO { Identifier = 2, Name = "Act", Status = Shared.Entities.Enums.EnumOrderStatus.Active}
+            new OrderDTO { Identifier = 1, Name = "Est", Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active},
+            new OrderDTO { Identifier = 2, Name = "Act", Status = (int)Shared.Entities.Enums.EnumOrderStatus.Active}
         };
 
 

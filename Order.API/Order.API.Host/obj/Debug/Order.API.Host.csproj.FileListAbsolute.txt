@@ -59,8 +59,10 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.Web.Infrastruc
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Newtonsoft.Json.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.Contracts.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Data.Agent.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Data.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Entities.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Owin.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Net.Http.Formatting.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.Helpers.dll
@@ -74,11 +76,12 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Depl
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Razor.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\WebGrease.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.Contracts.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Data.Agent.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Data.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Entities.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.ApiExplorer.pdb
@@ -98,7 +101,6 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Depl
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Razor.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Antlr3.Runtime.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csprojAssemblyReference.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CoreCompileInputs.cache
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CopyComplete

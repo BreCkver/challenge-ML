@@ -4,7 +4,8 @@
 -- Desc: <GET OrderDetail>       
 --=============================================================================================================================================            
 CREATE PROCEDURE [dbo].[usp_OrderDetail_GETL]      
-@pi_OrderIdentifier		INT
+@pi_OrderIdentifier		INT,
+@pi_OrderStatusId		INT
 AS                                                                          
 BEGIN      
 
@@ -26,7 +27,7 @@ BEGIN
 		OrderDetail
 	WHERE
 		OrderIdentifier	= @pi_OrderIdentifier
-	AND OrderStatusId	= 2
+	AND OrderStatusId	= @pi_OrderStatusId
 		      
  SET TRANSACTION ISOLATION LEVEL READ COMMITTED;               
  SET NOCOUNT OFF;              

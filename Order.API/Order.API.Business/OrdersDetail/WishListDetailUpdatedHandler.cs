@@ -70,9 +70,19 @@ namespace Order.API.Business.OrdersDetail
             }
 
             var existsDuplicate = GetMatchElements(productExistsResult.Value, request.WishList.BookList);
+
+            if(!existsDuplicate.Any())
+            {
+               return ResponseGeneric.CreateError<bool>(new Error
+                    (
+                        ErrorCode.PRODUCT_NOEXISTS,
+                        string.Format(ErrorMessage.PRODUCT_NOEXISTS, string.Join(",", request.WishList.BookList.Select(d => d.Identifier))),
+                        ErrorType.BUSINESS)
+                    );
+            }
+
             if (existsDuplicate.Any() && existsDuplicate.Count() != request.WishList.BookList.Count())
             {
-
                 var booksNoExists = request.WishList.BookList.Where(e => !existsDuplicate.Any(du => du.Identifier == e.Identifier));
                 return ResponseGeneric.CreateError<bool>(new Error
                     (

@@ -28,7 +28,7 @@ namespace Order.API.IntegrationTest.OrderDetailTest
             },
             WishList = new WishListDTO
             {
-                Identifier = 118,
+                Identifier = 149,
                 BookList = GetBookList.ToList(),
             }
         };

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -33,7 +34,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetBookFilterRequest.User)));
 
             var response = await handler.IsValid(GetBookFilterRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
 
         }
 
@@ -44,7 +46,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetBookEmptyFilterRequest.User)));
 
             var response = await handler.IsValid(GetBookEmptyFilterRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
 
         }
 
@@ -55,7 +58,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetUserEmptyFilterRequest.User)));
 
             var response = await handler.IsValid(GetUserEmptyFilterRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -65,7 +69,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(userNull, false)));
 
             var response = await handler.IsValid(GetBookFilterRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
 
         }
 
@@ -77,14 +82,16 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(userNull)));
 
             var response = await handler.IsValid(GetBookFilterRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
         public async Task Failure_Validations_RequestNull()
         {
             var response = await handler.IsValid(GetBookFilterRequestNull);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
 
         }
 
@@ -95,7 +102,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetBookNoExistsFilterRequest.User)));
 
             var response = await handler.Execute(GetBookNoExistsFilterRequest);
-            Assert.IsFalse(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsFalse(response.Success, errors);
         }
 
         [TestMethod]
@@ -105,7 +113,8 @@ namespace Order.API.UnitTest
                   .Returns(Task.FromResult(ResponseGeneric.Create(GetBookFilterRequest.User)));
 
             var response = await handler.Execute(GetBookFilterRequest);
-            Assert.IsTrue(response.Success);
+            var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
+            Assert.IsTrue(response.Success, errors);
 
         }
 
@@ -118,7 +127,7 @@ namespace Order.API.UnitTest
             },
             User = new UserDTO
             {
-                Token = "SADasd!a",
+               Identifier = 1,
             },
         };
 
@@ -131,7 +140,7 @@ namespace Order.API.UnitTest
             },
             User = new UserDTO
             {
-                Token = "SADasd!a",
+                Identifier = 1,
             },
         };
 
@@ -144,7 +153,7 @@ namespace Order.API.UnitTest
             },
             User = new UserDTO
             {
-                Token = "SADasd!a",
+                Identifier = 1,
             },
         };
 
@@ -157,7 +166,7 @@ namespace Order.API.UnitTest
             },
             User = new UserDTO
             {
-                Token = string.Empty
+                Identifier = null,
             },
         };
 

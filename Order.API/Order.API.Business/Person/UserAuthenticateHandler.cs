@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Order.API.Business.Person
 {
-    public class UserAuthenticateHandler : UserBaseValidator, IPersonHandler<UserRequest, UserResponse>
+    public class UserAuthenticateHandler : UserBaseValidator, ICommandHandler<UserRequest, UserResponse>
     {
         private readonly IUserRepository repository;
         private UserDTO user;

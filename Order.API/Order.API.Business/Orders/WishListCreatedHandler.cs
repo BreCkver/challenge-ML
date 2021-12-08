@@ -31,7 +31,7 @@ namespace Order.API.Business.Orders
                 if (orderInsertResult.Success)
                 {
                     var withlistNew = orderInsertResult.Value;
-                    var respose = new WishListResponse { WishList = new WishListDTO { Identifier = withlistNew.Identifier, Name = withlistNew.Name, Status = EnumOrderStatus.Active } };
+                    var respose = new WishListResponse { WishList = new WishListDTO { Identifier = withlistNew.Identifier, Name = withlistNew.Name, Status = (int)EnumOrderStatus.Active } };
                     return ResponseGeneric.Create(respose);
                 }
                 return orderInsertResult.AsError<WishListResponse>();
@@ -58,7 +58,7 @@ namespace Order.API.Business.Orders
             request.User.Identifier == null ||
               string.IsNullOrWhiteSpace(request.WishList.Name) ||
                request.WishList.Name.Length > 100   ||
-                 request.WishList.Status != EnumOrderStatus.New;
+                 request.WishList.Status != (int)EnumOrderStatus.New;
 
         protected override async Task<ResponseGeneric<bool>> ValidateOrder(WishListRequest request)
         {
@@ -67,7 +67,7 @@ namespace Order.API.Business.Orders
             {
                 return wishListExistsResult.AsError<bool>();
             }
-            if (wishListExistsResult.Value != null && wishListExistsResult.Value.Status == EnumOrderStatus.Active)
+            if (wishListExistsResult.Value != null && wishListExistsResult.Value.Status == (int)EnumOrderStatus.Active)
             {
                 return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.WISHLIST_EXISTS, ErrorMessage.WISHLIST_EXISTS, ErrorType.BUSINESS));
             }

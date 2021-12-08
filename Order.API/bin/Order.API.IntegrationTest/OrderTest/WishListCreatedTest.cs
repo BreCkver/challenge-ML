@@ -27,7 +27,7 @@ namespace Order.API.IntegrationTest.OrderTest
             WishList = new WishListDTO
             {
                 Name = GetWishListName(),
-                Status = Shared.Entities.Enums.EnumOrderStatus.New
+                Status = (int)Shared.Entities.Enums.EnumOrderStatus.New
             }
         };
 

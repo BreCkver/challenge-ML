@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Data
 {
@@ -44,7 +45,7 @@ namespace Order.API.Data
                             {
                                 Identifier = !reader.IsDBNull(columnIdentifier) ? reader.GetInt32(columnIdentifier) : default,
                                 Name = !reader.IsDBNull(columnName) ? reader.GetString(columnName) : string.Empty,
-                                Status = !reader.IsDBNull(columnOrderStatusId) ? (EnumOrderStatus)reader.GetInt32(columnOrderStatusId) : EnumOrderStatus.None,
+                                Status = !reader.IsDBNull(columnOrderStatusId) ? reader.GetInt32(columnOrderStatusId) : default,
                             });
                         }
                         reader.Close();
@@ -75,6 +76,7 @@ namespace Order.API.Data
                     using (command.Connection)
                     {
                         command.Parameters.Add(new SqlParameter("@pi_UserId", userIdentifier));
+                        command.Parameters.Add(new SqlParameter("@pi_Identifier", HelperConvert.ValidateOrderIdentifier(order.Identifier)));
                         command.Parameters.Add(new SqlParameter("@pc_Name", order.Name));
                         var reader = await command.ExecuteReaderAsync();
                         var columnIdentifier = reader.GetOrdinal("Identifier");
@@ -87,7 +89,7 @@ namespace Order.API.Data
                             {
                                 Identifier = !reader.IsDBNull(columnIdentifier) ? reader.GetInt32(columnIdentifier) : default,
                                 Name = !reader.IsDBNull(columnName) ? reader.GetString(columnName) : string.Empty,
-                                Status = !reader.IsDBNull(columnOrderStatusId) ? (EnumOrderStatus)reader.GetInt32(columnOrderStatusId) : EnumOrderStatus.None,
+                                Status = !reader.IsDBNull(columnOrderStatusId) ? reader.GetInt32(columnOrderStatusId) : default,
                             };
                         }
                         reader.Close();

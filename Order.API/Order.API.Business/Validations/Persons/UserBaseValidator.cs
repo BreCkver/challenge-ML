@@ -26,7 +26,7 @@ namespace Order.API.Business.Validations.Persons
             }
             if (ValidateRequest(request))
             {
-                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_EMPTY, ErrorMessage.REQUEST_EMPTY, ErrorType.BUSINESS));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.REQUEST_WRONG, ErrorMessage.REQUEST_WRONG, ErrorType.BUSINESS));
             }
 
             if(!request.UserName.ValidateCharacters() || !request.Password.ValidateCharacters())
@@ -47,7 +47,7 @@ namespace Order.API.Business.Validations.Persons
 
         protected virtual async Task<ResponseGeneric<bool>> ValidateUser(UserRequest request)
         {
-            var UserExists = await userRepository.GetByUser(request);
+            var UserExists = await userRepository.GetByUser(HelperConvert.ConverToUserDTONameOnly(request));
             if (UserExists.Failure)
             {
                 return UserExists.AsError<bool>();

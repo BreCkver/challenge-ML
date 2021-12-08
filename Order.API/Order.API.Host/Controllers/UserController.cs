@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Order.API.Host.Extensions;
 using Order.API.Host.Factory;
-using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Request;
 
 namespace Order.API.Host.Controllers
@@ -12,7 +10,7 @@ namespace Order.API.Host.Controllers
     public class UserController : ApiController
     {
         [HttpPost]
-        [Route("create")]
+        [Route("api/user")]
         public async Task<HttpResponseMessage> UserCreate([FromBody] UserRequest request)
         {
             var handler = new UserFactory().Create(request);
@@ -28,7 +26,7 @@ namespace Order.API.Host.Controllers
         }
 
         [HttpPost]
-        [Route("authenticate")]
+        [Route("api/user/authenticate")]
         public async Task<HttpResponseMessage> Authenticate([FromBody] UserRequest request)
         {
             var handler = new UserFactory().Create(request);
