@@ -4,6 +4,7 @@ using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
+using Order.API.Shared.Framework.Helpers;
 using System.Threading.Tasks;
 
 namespace Order.API.Business.Products
@@ -25,7 +26,7 @@ namespace Order.API.Business.Products
             var requestValid = await IsValid(request);
             if (requestValid.Success)
             {
-                var respose = await googleApiService.GetBooksFilter(request.Book.Keyword, request.Book.Title, request.Book.Publisher, request.Book.Authors[0]);
+                var respose = await googleApiService.GetBooksFilter(request.Book.Keyword, request.Book.Title, request.Book.Publisher, HelperConvert.ConverAuthorsToAuthor(request.Book.Authors));
                 if (respose.Failure)
                 {
                     return ResponseGeneric.CreateError<BookResponse>(respose.ErrorList);

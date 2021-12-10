@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Order.API.Business.Contracts.Error;
 
 namespace Order.API.Data
 {
@@ -50,7 +51,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<bool>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
 
@@ -102,7 +103,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<IEnumerable<BookDTO>>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<IEnumerable<BookDTO>>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
 
@@ -134,7 +135,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<bool>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
     }

@@ -17,8 +17,8 @@ namespace Order.API.IntegrationTest.UserTests
 
         public UserRequest GetUserRequest => new UserRequest
         {
-            UserName = "Jaime",
-            Password = "PassWord"
+            UserName = "User-01",
+            Password = "123"
         };
 
         [TestInitialize]
@@ -34,7 +34,7 @@ namespace Order.API.IntegrationTest.UserTests
         {
             var response = await handler.Execute(GetUserRequest);
             var errors = response.ErrorList != null ? string.Join("-", response.ErrorList.Select(e => e.Message)) : string.Empty;
-            Assert.IsTrue(response.Success);
+            Assert.IsTrue(response.Success, errors);
         }
     }
 }

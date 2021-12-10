@@ -8,6 +8,7 @@ using Order.API.Business.Products;
 using Order.API.Data.Agent;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Request;
+using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.UnitTest
 {
@@ -22,7 +23,7 @@ namespace Order.API.UnitTest
         public void Initialize()
         {
             repository = new Mock<IUserRepository>();
-            googleApiService = new GoogleApiService(@"https://www.googleapis.com/books/v1/volumes");
+            googleApiService = new GoogleApiService(Helper.GetGoogleApi());
             handler = new BookFilterHandler(googleApiService, repository.Object);
         }
 

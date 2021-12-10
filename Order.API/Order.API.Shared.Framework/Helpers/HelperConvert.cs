@@ -7,6 +7,8 @@ using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Order.API.Shared.Framework.Helpers
 {
@@ -16,7 +18,7 @@ namespace Order.API.Shared.Framework.Helpers
         => new UserDTO
         {
             UserName = request.UserName,
-            Password = request.Password,
+            Password = HelperConvert.Hash(request.Password),
             StatusIdentifier = request.StatusIdentifier,
         };
         public static ResponseGeneric<BookResponse> MapBooksExternal(BookExternalResponse external)
@@ -42,7 +44,6 @@ namespace Order.API.Shared.Framework.Helpers
 
             return ResponseGeneric.Create(bookList);
         }
-
         public static ResponseGeneric<BookExtendedDTO> MapBookExternal(BookExternal external)
         {
             if (external == null || external.volumeInfo == null)
@@ -65,12 +66,11 @@ namespace Order.API.Shared.Framework.Helpers
                 InfoLink = external.volumeInfo?.infoLink,
                 Keyword = string.Empty,
                 Status = Entities.Enums.EnumProductStatus.Active,
-                
+
             };
 
             return ResponseGeneric.Create(book);
         }
-
         public static OrderDTO ConverToOrderDTO(this WishListRequest request)
            => new OrderDTO
            {
@@ -78,7 +78,6 @@ namespace Order.API.Shared.Framework.Helpers
                Identifier = request.WishList.Identifier,
                Status = request.WishList.Status,
            };
-
         public static List<WishListDTO> ConvertToWishLists(this IEnumerable<OrderDTO> list)
             => list.Select(l => new WishListDTO
             {
@@ -86,12 +85,32 @@ namespace Order.API.Shared.Framework.Helpers
                 Name = l.Name,
                 Status = l.Status
             }).ToList();
-
         public static long? ValidateOrderIdentifier(long orderIdentifier)
             =>
                 orderIdentifier == 0 ? (long?)null : orderIdentifier;
         public static UserDTO ConverToUserDTONameOnly(UserDTO user)
             =>
                 new UserDTO { UserName = user.UserName };
+        public static string Hash(string data)
+        {
+            using (var md5 = MD5.Create())
+                return GetMd5Hash(md5.ComputeHash(Encoding.UTF8.GetBytes(data)));
+        }
+        private static string GetMd5Hash(byte[] data)
+        {
+            var sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+                sBuilder.Append(data[i].ToString("x2"));
+            return sBuilder.ToString();
+        }
+
+        public static string ConverAuthorsToAuthor(List<string> authorList)
+        {
+            if (authorList != null && authorList.Count > 0)
+                return authorList.First();
+            else
+                return string.Empty;
+
+        }
     }
 }

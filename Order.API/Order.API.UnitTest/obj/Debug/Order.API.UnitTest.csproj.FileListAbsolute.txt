@@ -32,3 +32,4 @@ C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.Unit
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.dll
 C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\obj\Debug\Order.API.UnitTest.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.UnitTest\bin\Debug\Order.API.UnitTest.dll.config

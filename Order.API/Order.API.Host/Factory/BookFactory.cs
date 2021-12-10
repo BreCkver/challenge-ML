@@ -34,6 +34,18 @@ namespace Order.API.Host.Factory
             var handler = new BookFilterHandler(service, data);
             return ResponseGeneric.Create((ICommandHandler<BookFilterRequest, BookResponse>)handler);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ResponseGeneric<ICommandHandler<BookFilterRequest, BookExtendedDTO>> CreateBookFilter()
+        {
+            var data = new UserData(connectionString);
+            var service = new GoogleApiService(Helper.GetGoogleApi());
+            var handler = new BookFilterItemHandler(service, data);
+            return ResponseGeneric.Create((ICommandHandler<BookFilterRequest, BookExtendedDTO>)handler);
+        }
     }
 
 }

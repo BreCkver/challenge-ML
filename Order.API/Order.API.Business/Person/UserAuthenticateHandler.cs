@@ -3,6 +3,7 @@ using Order.API.Business.Contracts.Error;
 using Order.API.Business.Validations.Persons;
 using Order.API.Shared.Entities;
 using Order.API.Shared.Entities.Constants;
+using Order.API.Shared.Entities.Enums;
 using Order.API.Shared.Entities.Request;
 using Order.API.Shared.Entities.Response;
 using Order.API.Shared.Framework.Helpers;

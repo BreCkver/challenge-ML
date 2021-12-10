@@ -66,7 +66,6 @@ namespace Order.API.UnitTest
             WishList = new WishListDTO
             {
                 Identifier = 1331012,
-                Name = "New Name",
                 Status = (int)Shared.Entities.Enums.EnumOrderStatus.Deleted
             }
         };

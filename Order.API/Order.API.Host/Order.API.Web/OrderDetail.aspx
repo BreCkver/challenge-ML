@@ -39,14 +39,14 @@
         <asp:Label ID="lblError" CssClass="textCenter" runat="server"></asp:Label>
         <br />
         <asp:Label ID="lblOrderName" CssClass="textCenter" runat="server"></asp:Label><br />
-    <asp:Panel id="pnlHeader" runat="server">
-        <br />
-        <asp:LinkButton ID="lnkNewButton" CssClass="textCenter" runat="server" OnClick="OrderNew">Agregar Libro</asp:LinkButton>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Panel ID="pnlHeader" runat="server">
+            <br />
+            <asp:LinkButton ID="lnkNewButton" CssClass="textCenter" runat="server" OnClick="OrderNew">Agregar Libro</asp:LinkButton>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:LinkButton ID="lnkOrdersGo" CssClass="textCenter" runat="server" OnClick="GoOrders">Regresar</asp:LinkButton>
 
-    </asp:Panel>
-        
+        </asp:Panel>
+
     </div>
     <br />
     <asp:Panel runat="server" ID="pnlOrderDetailList">
@@ -78,7 +78,7 @@
                                 <asp:Label runat="server" ID="lblPublisher" Text='<%#Eval("Publisher")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Button Text="Ver Detalle" runat="server" OnClick="ProductDetail" />
+                                <asp:Button Text="Ver Detalle" runat="server" OnClick="ProductDetail" Visible="false" />
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Button Text="Eliminar" runat="server" OnClick="ProductUpdated" />
 

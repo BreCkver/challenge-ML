@@ -18,8 +18,8 @@ namespace Order.API.IntegrationTest.UserTests
         public UserRequest GetUserRequest => new UserRequest
         {
             UserName = GetUserName(),
-            Password = "password",
-            PasswordConfirm = "password",
+            Password = "123",
+            PasswordConfirm = "123",
             StatusIdentifier = (int)Shared.Entities.Enums.EnumUserStatus.New
 
         };
