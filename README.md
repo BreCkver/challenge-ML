@@ -26,8 +26,8 @@
 - Book        --> Esta dedicado a la busqueda de libros en una api externa
 
 ## Ejemplos 
-### La documetacion del servicio se realizo en swagger y se puede consultar en:  https://{server}:{port}/swagger,
-- ![imagen](https://user-images.githubusercontent.com/59982584/145640080-38a963a8-2774-45b8-8265-c1200e9e0a99.png)
+- La documetacion del servicio se realizo en swagger y se puede consultar en:  https://{server}:{port}/swagger,
+- ![imagen](https://user-images.githubusercontent.com/59982584/145640395-46165fa5-2bb2-4fd7-91b2-dc01f86775f0.png)
 
 
 ### Creacion de usuario: 
