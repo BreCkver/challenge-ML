@@ -7,9 +7,10 @@ using System.Web.Http;
 
 namespace Order.API.Host.Controllers
 {
+    [Authorize]
     public class BookController : ApiController
     {
-        [HttpGet]
+        [HttpPost]
         [Route("api/order/detail/search")]
         public async Task<HttpResponseMessage> WishListDetailGetFilterList([FromBody] BookFilterRequest request)
         {
@@ -18,11 +19,11 @@ namespace Order.API.Host.Controllers
             if (validate.Failure)
             {
                 //Pendiente registrar en log
-                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Get), validate.ToResponse());
+                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Post), validate.ToResponse());
             }
 
             var result = await handler.Value.Execute(request);
-            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
+            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Post), result.ToResponse());
         }
     }
 }

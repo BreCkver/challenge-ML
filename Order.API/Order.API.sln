@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{7B
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Order.API.DataBase", "Order.API.DataBase\Order.API.DataBase.sqlproj", "{328B7F72-0AF5-4CE5-89D4-90C37EC18A46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API.Web", "Order.API.Host\Order.API.Web\Order.API.Web.csproj", "{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{328B7F72-0AF5-4CE5-89D4-90C37EC18A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328B7F72-0AF5-4CE5-89D4-90C37EC18A46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{328B7F72-0AF5-4CE5-89D4-90C37EC18A46}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{529F5BBD-1A5A-4C32-86D8-6CE3B4D2A412} = {7C7796D1-ADE8-40FF-B0AD-17A3209B8765}
 		{C24039F1-2E85-49BA-94F6-5A1C5B76FA30} = {50384758-4EBB-4B1A-BD0E-43A8FD8AB92B}
 		{328B7F72-0AF5-4CE5-89D4-90C37EC18A46} = {7B800135-1D64-4E66-A256-CE3D9C25DC4C}
+		{B2AC0E9D-FA5F-4A3D-B12E-E6714003CA0A} = {2A364908-FCD5-4173-9CE8-8DA82918B471}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F852273-5F47-4D6B-BC5C-62DFA7A336EF}

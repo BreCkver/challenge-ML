@@ -6,7 +6,8 @@ using Order.API.Host.Factory;
 using Order.API.Shared.Entities.Request;
 
 namespace Order.API.Host.Controllers
-{
+{   
+    [AllowAnonymous]
     public class UserController : ApiController
     {
         [HttpPost]
@@ -38,6 +39,11 @@ namespace Order.API.Host.Controllers
             }
 
             var result = await handler.Value.Execute(request);
+            if(result.Success)
+            {
+                var toker = ResponseExtensions.CreatedToken(request.UserName);
+                result.Value.User.Token = toker;
+            }
             return Request.CreateResponse(result.ToStatusCode(HttpMethod.Post), result.ToResponse());
         }
     }

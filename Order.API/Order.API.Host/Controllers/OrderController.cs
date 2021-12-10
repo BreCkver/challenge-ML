@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace Order.API.Host.Controllers
 {
+    [Authorize]
     public class OrderController : ApiController
     {
         [HttpPost]
@@ -26,11 +27,12 @@ namespace Order.API.Host.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/order/all")]
-        public async Task<HttpResponseMessage> WishListGetFilterList([FromBody] WishListRequest request)
+        [HttpGet]       
+        [Route("api/order/user")]
+        public async Task<HttpResponseMessage> WishListGetFilterList([FromUri] int identifier)
         {
             var handler = new WishListFactory().CreateFilter();
+            var request = new WishListRequest { User = new Shared.Entities.UserDTO { Identifier = identifier }, };
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
             {
@@ -42,7 +44,7 @@ namespace Order.API.Host.Controllers
             return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
         }
 
-        [HttpPut]
+        [HttpPut]        
         [Route("api/order/action/delete")]
         public async Task<HttpResponseMessage> WishListUpdate([FromBody] WishListRequest request)
         {

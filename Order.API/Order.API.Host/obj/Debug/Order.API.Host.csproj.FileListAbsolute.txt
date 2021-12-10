@@ -106,3 +106,11 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csp
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.pdb
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.xml

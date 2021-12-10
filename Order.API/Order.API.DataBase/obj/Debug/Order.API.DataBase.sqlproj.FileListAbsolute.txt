@@ -3,7 +3,4 @@ C:\Repository\challenge-ML\Order.API\Order.API.DataBase\bin\Debug\Order.API.Data
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\bin\Debug\Order.API.DataBase.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.dll
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.pdb
-C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Model.xml
-C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\refactor.xml
-C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\postdeploy.sql
-C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\predeploy.sql
+C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.sqlprojAssemblyReference.cache
