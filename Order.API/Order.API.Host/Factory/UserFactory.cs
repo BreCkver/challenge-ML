@@ -9,14 +9,25 @@ using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Host.Factory
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserFactory
     {
         private readonly string connectionString;
+        /// <summary>
+        /// 
+        /// </summary>
         public UserFactory()
         {
             connectionString = Helper.GetConnection();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public ResponseGeneric<ICommandHandler<UserRequest,UserResponse>> Create(UserRequest request)
         {
             var data = new UserData(connectionString);           

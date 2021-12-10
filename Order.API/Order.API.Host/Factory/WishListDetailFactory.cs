@@ -10,14 +10,24 @@ using System.Linq;
 
 namespace Order.API.Host.Factory
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WishListDetailFactory
     {
         private readonly string connectionString;
+        /// <summary>
+        /// 
+        /// </summary>
         public WishListDetailFactory()
         {
             connectionString = Helper.GetConnection();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public ResponseGeneric<ICommandHandler<WishListDetailRequest, WishListDetailResponse>> Create(WishListDetailRequest request)
         {
             var data = new UserData(connectionString);

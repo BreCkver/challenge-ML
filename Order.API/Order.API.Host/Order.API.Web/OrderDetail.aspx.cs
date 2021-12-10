@@ -82,13 +82,13 @@ namespace Order.API.Web
                     {
                         Identifier = Convert.ToInt32(hfOrderId.Value),
                         BookList = new List<BookDTO>
-                    {
-                       new BookDTO
-                       {
-                           Identifier = Convert.ToInt32(productId),
-                           Status = 11
-                       }
-                    }
+                        {
+                           new BookDTO
+                           {
+                               Identifier = Convert.ToInt32(productId),
+                               Status = 11
+                           }
+                        }
                     }
                 };
                 var response = new OrderDetailExecute(UserMaster.Token).ExecutePut(request, "order/detail/action/delete");

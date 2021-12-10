@@ -9,11 +9,17 @@ using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Host.Factory
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WishListFactory
     {
         private readonly string connectionString;
         private readonly UserData userData;
         private readonly OrderData orderData;
+        /// <summary>
+        /// 
+        /// </summary>
         public WishListFactory()
         {
             connectionString = Helper.GetConnection();
@@ -21,6 +27,11 @@ namespace Order.API.Host.Factory
             orderData = new OrderData(connectionString);
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public ResponseGeneric<ICommandHandler<WishListRequest, WishListResponse>> Create(WishListRequest request)
         {
             if (request != null && request.WishList != null && request.WishList.Status == (int)EnumOrderStatus.New)

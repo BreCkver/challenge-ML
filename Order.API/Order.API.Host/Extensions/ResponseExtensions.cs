@@ -11,6 +11,9 @@ using System;
 
 namespace Order.API.Host.Extensions
 {
+    /// <summary>
+    /// Metodo extension con funcionalidades como convertir una respuesta y generar el token 
+    /// </summary>
     public static class ResponseExtensions
     {
        /// <summary>

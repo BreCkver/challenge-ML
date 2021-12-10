@@ -11,6 +11,7 @@ using System.Web;
 
 namespace Order.API.Host.Extensions
 {
+
     internal class TokenValidationHandler : DelegatingHandler
     {     
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
