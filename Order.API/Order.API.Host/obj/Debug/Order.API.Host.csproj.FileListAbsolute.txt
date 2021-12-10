@@ -114,3 +114,6 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Swashbuckle.Core.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\WebActivatorEx.dll

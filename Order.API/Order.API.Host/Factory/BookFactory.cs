@@ -9,14 +9,24 @@ using Order.API.Shared.Framework.Helpers;
 
 namespace Order.API.Host.Factory
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BookFactory
     {
         private readonly string connectionString;
+        /// <summary>
+        /// 
+        /// </summary>
         public BookFactory()
         {
             connectionString = Helper.GetConnection();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ResponseGeneric<ICommandHandler<BookFilterRequest, BookResponse>> Create()
         {
             var data = new UserData(connectionString);

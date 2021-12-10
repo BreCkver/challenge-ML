@@ -7,9 +7,19 @@ using System.Web.Http;
 
 namespace Order.API.Host.Controllers
 {
+    /// <summary>
+    /// Controlador con responsabilidad de registrar, actualizar y listar los wishlist de un usuario
+    /// </summary>
     [Authorize]
     public class OrderController : ApiController
     {
+        /// <summary>
+        /// Registra una nueva wishlist
+        /// </summary>
+        /// <param name="request">Tiene como obigatorios los siguientes parametros: Usuario.Identifier, WishList.Name, WishList.Status = 1</param>
+        /// <returns>Entidad WishList con el identificador asignado</returns>
+        /// <response code="201">Created, si se registro correctamente la nueva wishList</response>
+        /// <response code="400">BadRequest, si algun parametro requerido no es definido o su valor es incorrecto </response>
         [HttpPost]
         [Route("api/order")]
         public async Task<HttpResponseMessage> WishListCreate([FromBody] WishListRequest request)
@@ -18,7 +28,6 @@ namespace Order.API.Host.Controllers
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
             {
-                //Pendiente registrar en log
                 return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Post), validate.ToResponse());
             }
 
@@ -27,6 +36,13 @@ namespace Order.API.Host.Controllers
         }
 
 
+        /// <summary>
+        /// Recupera los wishList asociados al usuario
+        /// </summary>
+        /// <param name="identifier">Identificador del usuario</param>
+        /// <returns>Una lista de wishList asociadas al usuario</returns>
+        /// <response code="200">Ok, si la peticion se realizo correctamente</response>
+        /// <response code="400">BadRequest, si algun parametro requerido no es definido o su valor es incorrecto </response>
         [HttpGet]       
         [Route("api/order/user")]
         public async Task<HttpResponseMessage> WishListGetFilterList([FromUri] int identifier)
@@ -44,6 +60,13 @@ namespace Order.API.Host.Controllers
             return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
         }
 
+        /// <summary>
+        /// Actualiza un wishList especifico asociados al usuario, es este caso especifico lo elimina logicamente
+        /// </summary>
+        /// <param name="request">Tiene como obigatorios los siguientes parametros: Usuario.Identifier, WishList.Identifier, WishList.Status = 3</param>
+        /// <returns>Objeto WishList con su identificador</returns>
+        /// <response code="200">Ok, si la actualizacion se realizo correctamente</response>
+        /// <response code="400">BadRequest, si algun parametro requerido no es definido o su valor es incorrecto </response>
         [HttpPut]        
         [Route("api/order/action/delete")]
         public async Task<HttpResponseMessage> WishListUpdate([FromBody] WishListRequest request)
