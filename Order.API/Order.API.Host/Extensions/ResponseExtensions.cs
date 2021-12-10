@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using Microsoft.IdentityModel.Tokens;
+using Order.API.Shared.Framework.Helpers;
+using System.Security.Claims;
+using System;
 
 namespace Order.API.Host.Extensions
 {
@@ -78,6 +82,28 @@ namespace Order.API.Host.Extensions
 
             return code;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public static string CreatedToken(string username)
+        {
+            var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(Helper.GetAppSetting("secret_key")));
+            var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) });
+            var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+            var jwtSecurityToken = tokenHandler.CreateJwtSecurityToken(
+                audience: Helper.GetAppSetting("audience_token"),
+                issuer: Helper.GetAppSetting("issuer_token"),
+                subject: claimsIdentity,
+                notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToInt32(Helper.GetAppSetting("expire_token"))),
+                signingCredentials: signingCredentials);
 
+            var jwtTokenString = tokenHandler.WriteToken(jwtSecurityToken);
+            return jwtTokenString;
+        }
     }
 }

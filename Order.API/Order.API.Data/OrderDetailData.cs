@@ -91,8 +91,8 @@ namespace Order.API.Data
                                 ExternalIdentifier = !reader.IsDBNull(columnExternalIdentifier) ? reader.GetString(columnExternalIdentifier) : string.Empty,                              
                                 Keyword = !reader.IsDBNull(columnKeyWords) ? reader.GetString(columnKeyWords) : string.Empty,
                                 Title = !reader.IsDBNull(columnTitle) ? reader.GetString(columnTitle) : string.Empty,
-                                Authors = !reader.IsDBNull(columnTitle) ? new List<string> { reader.GetString(columnTitle) } : new List<string>(),
-                                Publisher = !reader.IsDBNull(columnTitle) ? reader.GetString(columnTitle) : string.Empty,
+                                Authors = !reader.IsDBNull(columnAuthor) ? new List<string> { reader.GetString(columnAuthor) } : new List<string>(),
+                                Publisher = !reader.IsDBNull(columnPublisher) ? reader.GetString(columnPublisher) : string.Empty,
                             });
                         }
                         reader.Close();

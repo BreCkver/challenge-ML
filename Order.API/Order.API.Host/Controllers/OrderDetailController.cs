@@ -7,12 +7,14 @@ using System.Web.Http;
 
 namespace Order.API.Host.Controllers
 {
+    [Authorize]
     public class OrderDetailController : ApiController
     {
         [HttpGet]
-        [Route("api/order/detail/all")]
-        public async Task<HttpResponseMessage> WishListDetailGetFilterList([FromBody] WishListDetailRequest request)
+        [Route("api/order/user/detail")]
+        public async Task<HttpResponseMessage> WishListDetailGetFilterList([FromUri] int orderIdentifier, int userIdentifier)
         {
+            var request = new WishListDetailRequest { User = new Shared.Entities.UserDTO { Identifier = userIdentifier }, WishList = new Shared.Entities.WishListDTO { Identifier = orderIdentifier } };
             var handler = new WishListDetailFactory().Create(request);
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
@@ -35,11 +37,11 @@ namespace Order.API.Host.Controllers
             if (validate.Failure)
             {
                 //Pendiente registrar en log
-                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Get), validate.ToResponse());
+                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Post), validate.ToResponse());
             }
 
             var result = await handler.Value.Execute(request);
-            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
+            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Post), result.ToResponse());
         }
 
         [HttpPut]
@@ -51,11 +53,11 @@ namespace Order.API.Host.Controllers
             if (validate.Failure)
             {
                 //Pendiente registrar en log
-                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Get), validate.ToResponse());
+                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Put), validate.ToResponse());
             }
 
             var result = await handler.Value.Execute(request);
-            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
+            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Put), result.ToResponse());
         }
     }
 }

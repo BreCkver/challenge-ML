@@ -7,4 +7,5 @@ namespace Order.API.Shared.Entities
     {
         public List<BookDTO> BookList { set; get; }
     }
+
 }
