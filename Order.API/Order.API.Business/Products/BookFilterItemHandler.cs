@@ -62,7 +62,7 @@ namespace Order.API.Business.Products
         }
 
         private bool ValidateRequest(BookFilterRequest request) =>
-        string.IsNullOrWhiteSpace(request.User.Token) ||
+        request.User.Identifier == null ||
         string.IsNullOrWhiteSpace(request.Book.ExternalIdentifier);
     }
 }

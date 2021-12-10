@@ -555,6 +555,16 @@
             <response code="201">Created, si se ejecuto de manera correcta </response>
             <response code="400">BadRequest, si algun parametro requerido no esta definido o su valor es incorrecto </response>
         </member>
+        <member name="M:Order.API.Host.Controllers.BookController.WishListDetailGetFilterList(System.Int32,System.String)">
+            <summary>
+            Retorna los detalles de un libro especifico del api
+            </summary>
+            <param name="userIdentifier"></param>
+            <param name="bookId"></param>
+            <returns>Libro especifico con mas detalles</returns>
+            <response code="200">Ok, si la peticion se realizo correctamente</response>
+            <response code="400">BadRequest, si algun parametro requerido no es definido o su valor es incorrecto </response>
+        </member>
         <member name="T:Order.API.Host.Controllers.OrderController">
             <summary>
             Controlador con responsabilidad de registrar, actualizar y listar los wishlist de un usuario
@@ -687,6 +697,12 @@
             </summary>
         </member>
         <member name="M:Order.API.Host.Factory.BookFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Order.API.Host.Factory.BookFactory.CreateBookFilter">
             <summary>
             
             </summary>

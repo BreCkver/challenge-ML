@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Order.API.Business.Contracts;
@@ -24,19 +25,26 @@ namespace Order.API.Business.Orders
 
         public async Task<ResponseGeneric<WishListResponse>> Execute(WishListRequest request)
         {
-            var orderValidated = await IsValid(request);
-            if (orderValidated.Success)
+            try
             {
-                var orderInsertResult = await orderRepository.Insert(request.WishList, request.User.Identifier.Value);
-                if (orderInsertResult.Success)
+                var orderValidated = await IsValid(request);
+                if (orderValidated.Success)
                 {
-                    var withlistNew = orderInsertResult.Value;
-                    var respose = new WishListResponse { WishList = new WishListDTO { Identifier = withlistNew.Identifier, Name = withlistNew.Name, Status = (int)EnumOrderStatus.Active } };
-                    return ResponseGeneric.Create(respose);
+                    var orderInsertResult = await orderRepository.Insert(request.WishList, request.User.Identifier.Value);
+                    if (orderInsertResult.Success)
+                    {
+                        var withlistNew = orderInsertResult.Value;
+                        var respose = new WishListResponse { WishList = new WishListDTO { Identifier = withlistNew.Identifier, Name = withlistNew.Name, Status = (int)EnumOrderStatus.Active } };
+                        return ResponseGeneric.Create(respose);
+                    }
+                    return orderInsertResult.AsError<WishListResponse>();
                 }
-                return orderInsertResult.AsError<WishListResponse>();
+                return ResponseGeneric.CreateError<WishListResponse>(orderValidated.ErrorList);
             }
-            return ResponseGeneric.CreateError<WishListResponse>(orderValidated.ErrorList);
+            catch (Exception ex)
+            {
+                return ResponseGeneric.CreateError<WishListResponse>(new Error(ErrorCode.INTERNAL_ERROR, ex));
+            }
         }
 
         public async Task<ResponseGeneric<bool>> IsValid(WishListRequest request)

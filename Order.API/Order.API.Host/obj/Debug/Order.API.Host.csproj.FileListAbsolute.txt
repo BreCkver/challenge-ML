@@ -1,4 +1,5 @@
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.dll.config
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\roslyn\csc.exe
@@ -54,6 +55,9 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Antlr3.Runtime.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.ApiExplorer.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.Owin.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.Web.Infrastructure.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Newtonsoft.Json.dll
@@ -64,6 +68,8 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Data.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Entities.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Shared.Framework.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Owin.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Swashbuckle.Core.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Net.Http.Formatting.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.Helpers.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.Http.dll
@@ -75,6 +81,7 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.Razor.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Deployment.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.WebPages.Razor.dll
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\WebActivatorEx.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\WebGrease.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.Contracts.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Business.pdb
@@ -86,7 +93,11 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.ApiExplorer.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.AspNet.WebApi.Versioning.ApiExplorer.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.Owin.xml
+C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Web.Http.Owin.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Newtonsoft.Json.xml
 C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.Net.Http.Formatting.xml
@@ -106,14 +117,3 @@ C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csp
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.csproj.CopyComplete
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.dll
 C:\Repository\challenge-ML\Order.API\Order.API.Host\obj\Debug\Order.API.Host.pdb
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.JsonWebTokens.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Logging.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Microsoft.IdentityModel.Tokens.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\System.IdentityModel.Tokens.Jwt.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Order.API.Host.xml
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\Swashbuckle.Core.dll
-C:\Repository\challenge-ML\Order.API\Order.API.Host\bin\WebActivatorEx.dll

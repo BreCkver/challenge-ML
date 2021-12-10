@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Order.API.Shared.Framework.Helpers;
+using Order.API.Business.Contracts.Error;
 
 namespace Order.API.Data
 {
@@ -55,7 +56,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<IEnumerable<OrderDTO>>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<IEnumerable<OrderDTO>>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
         public async Task<ResponseGeneric<OrderDTO>> GetOrder(OrderDTO order, int userIdentifier)
@@ -99,7 +100,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<OrderDTO>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<OrderDTO>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
         public async Task<ResponseGeneric<OrderDTO>> Insert(OrderDTO order, int userIdentifier)
@@ -130,7 +131,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<OrderDTO>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<OrderDTO>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
         public async Task<ResponseGeneric<bool>> Update(OrderDTO order)
@@ -159,7 +160,7 @@ namespace Order.API.Data
             }
             catch (Exception ex)
             {
-                return ResponseGeneric.CreateError<bool>(new Error("exception", ex));
+                return ResponseGeneric.CreateError<bool>(new Error(ErrorCode.INTERNAL_ERROR, ex));
             }
         }
     }

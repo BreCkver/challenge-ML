@@ -28,12 +28,41 @@ namespace Order.API.Host.Controllers
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
             {
-                //Pendiente registrar en log
                 return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Post), validate.ToResponse());
             }
 
             var result = await handler.Value.Execute(request);
             return Request.CreateResponse(result.ToStatusCode(HttpMethod.Post), result.ToResponse());
+        }
+
+        /// <summary>
+        /// Retorna los detalles de un libro especifico del api
+        /// </summary>
+        /// <param name="userIdentifier"></param>
+        /// <param name="bookId"></param>
+        /// <returns>Libro especifico con mas detalles</returns>
+        /// <response code="200">Ok, si la peticion se realizo correctamente</response>
+        /// <response code="400">BadRequest, si algun parametro requerido no es definido o su valor es incorrecto </response>
+        [HttpGet]
+        [Route("api/order/detail/item")]
+        public async Task<HttpResponseMessage> WishListDetailGetFilterList([FromUri] int userIdentifier, string bookId)
+        {
+            var request = new BookFilterRequest { 
+                    User = new Shared.Entities.UserDTO { Identifier = userIdentifier }, 
+                     Book = new Shared.Entities.BookDTO
+                     {
+                         ExternalIdentifier = bookId
+                     }
+                     };
+            var handler = new BookFactory().CreateBookFilter();
+            var validate = await handler.Value.IsValid(request);
+            if (validate.Failure)
+            {
+                return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Get), validate.ToResponse());
+            }
+
+            var result = await handler.Value.Execute(request);
+            return Request.CreateResponse(result.ToStatusCode(HttpMethod.Get), result.ToResponse());
         }
     }
 }

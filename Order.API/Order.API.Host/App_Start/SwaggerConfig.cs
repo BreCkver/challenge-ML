@@ -30,7 +30,7 @@ namespace Order.API.Host
                 {
 
                     c.SingleApiVersion("v1", "Order.API.Host").
-                    Description("Esta API, esta contruida con .NET Framework 6.2 y motor de base de datos " +
+                    Description("Esta API, esta contruida con .NET Framework 4.6.2 y motor de base de datos " +
                     "sql server, y tiene como objetivo llevar el control de una wishlist, operaciones CRUD, para usuarios registrados" +
                     ", la autentificacion esta bajo Bearer, JWT, adicionalmente existe una aplicacion web que simula un cliente de la misma").
                     Contact(p => p.Name("Jaime Reyes Vere").Email("breckver.dll@gmail.com").Url("https://github.com/BreCkver/"));

@@ -4,14 +4,14 @@ namespace Order.API.Shared.Framework.Helpers
     public static class HelperValidator
     {
         public static bool ValidateCharacters(this string text)
-          => Regex.IsMatch(text, @"^[a-zA-Z0-9? ,._/-]+$");
+          => Regex.IsMatch(text, @"^[a-zA-Z0-9? ,.:_/-]+$");
 
         public static bool ValidateCharactersSpecial(this string text)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return true;
             text = RemoveAccentsWithRegEx(text);
-            return Regex.IsMatch(text, @"^[a-zA-Z0-9? ,_./-]+$");
+            return Regex.IsMatch(text, @"^[a-zA-Z0-9? ,:_./-]+$");
         }
 
 

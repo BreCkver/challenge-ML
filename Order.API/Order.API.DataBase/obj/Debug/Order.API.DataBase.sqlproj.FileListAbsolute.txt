@@ -3,4 +3,3 @@ C:\Repository\challenge-ML\Order.API\Order.API.DataBase\bin\Debug\Order.API.Data
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\bin\Debug\Order.API.DataBase.pdb
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.dll
 C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.pdb
-C:\Repository\challenge-ML\Order.API\Order.API.DataBase\obj\Debug\Order.API.DataBase.sqlprojAssemblyReference.cache

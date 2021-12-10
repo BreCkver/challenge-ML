@@ -52,7 +52,6 @@ namespace Order.API.Host.Controllers
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
             {
-                //Pendiente registrar en log
                 return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Get), validate.ToResponse());
             }
 
@@ -75,7 +74,6 @@ namespace Order.API.Host.Controllers
             var validate = await handler.Value.IsValid(request);
             if (validate.Failure)
             {
-                //Pendiente registrar en log
                 return Request.CreateResponse(validate.ToStatusCode(HttpMethod.Put), validate.ToResponse());
             }
 

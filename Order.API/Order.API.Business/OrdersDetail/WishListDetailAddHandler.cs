@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Order.API.Business.Contracts;
@@ -23,18 +24,25 @@ namespace Order.API.Business.OrdersDetail
 
         public async Task<ResponseGeneric<WishListDetailResponse>> Execute(WishListDetailRequest request)
         {
-            var orderValidated = await IsValid(request);
-            if (orderValidated.Success)
+            try
             {
-                var orderInsertResult = await orderDetailRepository.Add(request.WishList, request.WishList.BookList);
-                if (orderInsertResult.Success)
+                var orderValidated = await IsValid(request);
+                if (orderValidated.Success)
                 {
-                    var respose = new WishListDetailResponse { WishList = request.WishList };
-                    return ResponseGeneric.Create(respose);
+                    var orderInsertResult = await orderDetailRepository.Add(request.WishList, request.WishList.BookList);
+                    if (orderInsertResult.Success)
+                    {
+                        var respose = new WishListDetailResponse { WishList = request.WishList };
+                        return ResponseGeneric.Create(respose);
+                    }
+                    return orderInsertResult.AsError<WishListDetailResponse>();
                 }
-                return orderInsertResult.AsError<WishListDetailResponse>();
+                return orderValidated.AsError<WishListDetailResponse>();
             }
-            return orderValidated.AsError<WishListDetailResponse>();
+            catch (Exception ex)
+            {
+                return ResponseGeneric.CreateError<WishListDetailResponse>(new Error(ErrorCode.INTERNAL_ERROR, ex));
+            }
         }
 
         public async Task<ResponseGeneric<bool>> IsValid(WishListDetailRequest request)

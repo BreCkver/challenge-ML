@@ -45,6 +45,7 @@ namespace Order.API.Business.Orders
         protected override bool ValidateRequest(WishListRequest request) =>
            request.User.Identifier == null ||
             request.WishList.Identifier == default ||
-                request.WishList.Status != (int)Shared.Entities.Enums.EnumOrderStatus.Deleted;
+                request.WishList.Status != (int)EnumOrderStatus.Deleted ||
+                    !string.IsNullOrWhiteSpace(request.WishList.Name);
     }
 }
